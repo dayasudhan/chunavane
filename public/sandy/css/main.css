@@ -1,0 +1,2540 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    background: rgba(236, 240, 241, 1);
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color: #161617;
+    line-height: 1.4;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    border: 0 none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    padding: 0px;
+    list-style-type: none;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+.mains {
+    background: url("../img/websiteposter.jpg") no-repeat scroll 0 0;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    /*    background: #00b16a;*/
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+.headup {
+    width: 100%;
+    margin: 0px auto;
+    border-radius: 6px;
+    float: left;
+    clear: both;
+}
+
+.logo {
+    width: 100%;
+    float: left;
+    margin: 5px auto;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.navigationbox {
+    width: 100%;
+    margin: 5px auto;
+    float: right;
+}
+
+.headone {
+    width: 100%;
+    margin: 0px auto;
+    padding: 10px;
+    float: left;
+    clear: both;
+}
+
+.tracks {
+    float: right;
+    text-align: center;
+}
+
+.tracklist {
+    list-style-type: none;
+    padding: 12px;
+    text-align: center !important;
+    left: 0em;
+}
+
+.boxtrack ul li {
+    padding: 0px 10px 0 10px;
+}
+
+.fieldone {
+    border: 2px solid #f7f7f7;
+    padding: 5px;
+    margin: 5px auto;
+    width: 10em;
+}
+
+.trackbacks h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.trackback h4 {
+    color: darkgoldenrod;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.headtwo {
+    width: 100%;
+    margin: 0px auto;
+    padding: 15px;
+    float: left;
+    clear: both;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.menu {
+    float: right;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 0px 38px 0 38px;
+    text-align: center;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.menu li a:hover {
+    color: #F39C12;
+}
+
+.menu li a .homey::after {
+    content: "";
+    background: url('../img/homey.png') no-repeat;
+    padding-left: 22px;
+}
+
+.menu li a .android::after {
+    content: "";
+    background: url('../img/newandroid.png') no-repeat;
+    padding-left: 22px;
+}
+
+.menu li a .logicon::after {
+    content: "";
+    background: url('../img/logs.png') no-repeat;
+    padding-left: 22px;
+}
+
+
+/*
+.applinks li {
+    display: inline-block;
+}
+*/
+
+.profedit a {
+    cursor: pointer;
+    /*    background: url("../img/profile.png") no-repeat left center;*/
+}
+
+.profedit .profiledit {
+    min-width: 300px;
+    left: -16em;
+}
+
+.profedit .profiledit li {
+    padding: 10px;
+    display: block;
+}
+
+.profedit .profiledit li img {
+    margin: 20px auto;
+}
+
+.profedit .profiledit li p {
+    font-weight: 600;
+    color: dodgerblue;
+}
+
+.profedit .profiledit li p small {
+    font-weight: lighter;
+}
+
+.profiledit li:last-child .proone {
+    float: left;
+}
+
+.profedit .profiledit li:last-child .protwo {
+    float: right;
+}
+
+.log h2 {
+    font-size: 20px;
+    text-transform: capitalize;
+    text-align: center;
+    color: #161617;
+}
+
+.loglist li {
+    display: block;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.loglist li .inputname {
+    background: url("../img/name.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.loglist li .inputphone {
+    background: url("../img/phone.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.loglist li .inputmail {
+    background: url("../img/mail.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.loglist li .inputpwd {
+    background: url("../img/pwd.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.loglist li .inputcpwd {
+    background: url("../img/cpwd.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.loglist li .forgot {
+    color: #E08283;
+    text-align: center;
+}
+
+.loglist li .forgot:hover {
+    color: #D24D57;
+}
+
+.loglist li .alone {
+    text-align: center;
+    width: 10em;
+}
+
+.sectionone {
+    /*
+    margin: 20px auto;
+    width: 100%;
+    float: left;
+    clear: both;
+*/
+/*
+    background: url("../img/websiteposter.jpg") no-repeat scroll 0 0;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+*/
+    /*    background: #00b16a;*/
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+.khanaquotes {
+    margin: 40px auto;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    float: left;
+    clear: both;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+}
+
+.khanaquotes h3 span:first-of-type {
+    color: #F5AB35;
+    text-shadow: 3px 3px 3px #000;
+}
+
+.khanaquotes h3 span:last-of-type {
+    color: #CF000F;
+    text-shadow: 3px 3px 3px #000;
+}
+
+.khanaquotes h3 {
+    color: #ffffff;
+    margin-top: 5px;
+    text-shadow: 6px 6px 6px #000;
+}
+
+.khanaquotes p {
+    color: #ffffff;
+    margin-top: 5px;
+    text-shadow: 6px 6px 6px #000;
+}
+
+.finderkeepers {
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 50px;
+    max-width: auto;
+    /*    min-height: 90px;*/
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    float: left;
+    clear: both;
+}
+
+
+/*
+.findernav {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.findernav li {
+    float: left;
+    padding: 0px 15px 0px 15px;
+    margin: 0px auto;
+}
+
+.selectouter {
+    border: 1px solid #d0d0d0;
+    overflow: hidden;
+    padding: 2px;
+    width: 17em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.fordonate {
+    margin: 0 auto;
+}
+
+.selector {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: url("../img/select-arrow.jpg");
+    background-origin: padding-box;
+    background-position: right center, 0 0;
+    background-repeat: no-repeat;
+    background-size: 34px 34px;
+    border: medium none;
+    padding-right: 34px;
+    padding-left: 8px;
+    width: 100% !important;
+    vertical-align: top;
+    height: 34px;
+    display: inline-flex;
+    outline: medium mone;
+}
+
+.optor {
+    padding: 10px;
+    border-bottom: 1px solid #f5f5f5;
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: all 0.15s ease 0s;
+    overflow: auto;
+}
+
+.finds {
+    width: 7em;
+    padding: 9px 9px;
+    border: 1px solid white;
+}
+
+.finds:hover {
+    background: rgb(0, 0, 0);
+    color: chartreuse;
+}
+*/
+
+.search-first {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: url("../img/arrow.png");
+    background-origin: padding-box;
+    background-position: 95% 50%, 0 0;
+    background-repeat: no-repeat;
+    background-size: 16px 10px;
+    padding: 0px 16px;
+}
+
+.search-second {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: url("../img/arrow.png");
+    background-origin: padding-box;
+    background-position: 95% 50%, 0 0;
+    background-repeat: no-repeat;
+    background-size: 16px 10px;
+    padding: 0px 16px;
+}
+
+
+/*
+.ordertime {
+    margin: 0px auto;
+    padding: 20px;
+    width: 100%;
+    float: left;
+    clear: both;
+    background: #DADFE1;
+}
+
+.timemenu li {
+    width: 24%;
+    padding-right: 12px;
+    background: ;
+    display: inline-block;
+    text-align: center;
+    border-right: 2px solid white;  
+}
+
+.timemenu li:last-child {
+    border-right: none;
+}
+
+.timemenu li h3 {
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.timemenu li h3 {
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.timemenu li p {
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+*/
+
+.sectionthree {
+    margin: 20px auto;
+    min-height: 800px;
+    clear: both;
+}
+
+.gettoknow {
+    margin: 0px auto;
+    padding: 5px;
+    width: 100%;
+    float: left;
+    clear: both;
+    border: 1px solid dodgerblue;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    /*
+    background: rgba(0, 0, 0, 0.3);
+*/
+}
+
+.knowmenu li {
+    width: 19%;
+    padding: 10px;
+    background: ;
+    display: inline-block;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.knowmenu li a {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #161617;
+}
+
+.knowmenu li a:hover {
+    border-bottom: 2px solid #F4D03F;
+    text-decoration: none;
+    color: darkgreen;
+}
+
+.sectionfour {
+    margin: 0px auto;
+    /*    min-height: 800px;*/
+    float: left;
+    width: 100%;
+    clear: both;
+    background: #ffffff;
+}
+
+.sectionfive {
+    margin: 0px auto;
+    /*    min-height: 800px;*/
+    float: left;
+    width: 100%;
+    clear: both;
+    background: #ffffff;
+}
+
+.khaanagalu {
+    /*    margin: 10px auto;*/
+    padding: 5px;
+    width: 100%;
+    float: left;
+    clear: both;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.hotelist li {
+    display: block;
+    margin: 10px auto;
+}
+
+.hotelist li .wrapper {
+    width: 100%;
+    float: left;
+    max-height: 100px;
+    /*    background: #C8F7C5;*/
+    border: 1px solid #F9690E;
+    border-radius: 5px;
+    margin: 10px auto;
+    background: url("../img/this.jpg") no-repeat scroll 0 0;
+}
+
+.hotelist li .wrapper .banner {
+    padding: 10px;
+    text-align: center;
+    float: left;
+    width: 120px;
+    height: 120px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.hotelist li .wrapper .banner img {
+    width: 100%;
+}
+
+.hotelist li .wrapper .bandescription {
+    padding-left: 2em;
+    float: left;
+    margin: 0px auto;
+}
+
+.hotelist li .wrapper .bandescription h4 {
+    text-transform: capitalize;
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 26px;
+    text-shadow: 6px 6px 6px #000;
+}
+
+.hotelist li .wrapper .bandescription p {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: left;
+    font-style: italic;
+    color: #000000;
+}
+
+.hotelist li .wrapper .timings {
+    padding-left: 2em;
+    float: left;
+    margin: 0px auto;
+}
+
+.hotelist li .wrapper .timing {
+    padding-left: 2em;
+    float: left;
+    margin: 0px auto;
+}
+
+.hotelist li .wrapper .bannen {
+    padding: 10px;
+    float: right;
+    height: 120px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.hotelist li .wrapper .bannen::before {
+    content: "";
+    vertical-align: middle;
+    display: inline-block;
+    height: 100%;
+}
+
+.hotelist li .wrapper .bannen {
+    text-align: center;
+}
+
+.kmenu {
+    margin: 0px auto;
+    width: 100%;
+}
+
+.kmenu .khlist li {
+    display: inline-block;
+    padding-right: 30px;
+}
+
+.kmenu .khlist li h5 {
+    color: #000000;
+    font-size: 16px;
+    margin: 0px auto;
+}
+
+.timemenu {
+    margin: 0px auto;
+    width: 100%;
+}
+
+.timemenu .timelist li {
+    display: block;
+    padding-right: 30px;
+}
+
+.timemenu .timelist li h5 {
+    color: #000000;
+    font-size: 16px;
+    margin: 0px auto;
+}
+
+.timmenu {
+    margin: 0px auto;
+    width: 100%;
+}
+
+.timmenu .timlist li {
+    display: inline-block;
+    padding-right: 30px;
+}
+
+.timmenu .timelist li h5 {
+    color: #000000;
+    font-size: 16px;
+    margin: 0px auto;
+}
+
+.tabux {
+    background: #F9BF3B;
+}
+
+.sectionsix {
+    margin: 0px auto;
+    /*    min-height: 800px;*/
+    float: left;
+    width: 100%;
+    clear: both;
+    background: #ffffff;
+}
+
+.khannaam {
+    margin: 10px auto;
+    padding: 15px;
+    background: url("../img/this.jpg") no-repeat scroll 0 0;
+}
+
+.khannaam h2 {
+    margin-top: 15px;
+    text-transform: capitalize;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 26px;
+    text-shadow: 6px 6px 6px #000;
+}
+
+.khannaam p {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: center;
+    font-style: italic;
+    color: #000000;
+}
+
+.khannaammenu {
+    margin: 0px auto;
+    width: 100%;
+    text-align: right;
+}
+
+.khannaamlist {
+    text-align: left;
+}
+
+.khannaamlist li {
+    display: inline-block;
+    padding-right: 30px;
+}
+
+.khannaamlist li h5 {
+    color: #000000;
+    font-size: 16px;
+    margin: 0px auto;
+}
+
+.menselect {
+    margin: 20px auto;
+    border: 1px solid green;
+    padding: 10px;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+.menselect table .tabcent {
+    text-align: center;
+}
+
+.menselect table .tabcents {
+    text-align: center;
+}
+
+.menselect table .tabcents b {
+    font-size: 20px;
+}
+
+.menselect table .tabcents img {
+    margin-right: 12px;
+    width: 150px;
+    height: 75px;
+}
+
+.menselect table .tabbold {
+    text-align: center;
+    font-weight: 700;
+}
+
+.menselect .grand {
+    border: 1px solid #2C3E50;
+    text-align: center;
+    padding: 5px;
+    font-weight: 800;
+    color: #96281B;
+}
+
+.mencheck {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.idetails {
+    overflow-x: auto;
+}
+
+.idetails h3 {
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.idetails h3 span {
+    color: #DB0A5B;
+}
+
+.idetails p {
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.idetails .grand {
+    border: 1px solid #19B5FE;
+    text-align: center;
+    padding: 5px;
+    font-weight: 800;
+    color: #96281B;
+}
+
+.deladdresspart {
+    margin: 0px auto;
+    padding: 10px;
+    clear: both;
+}
+
+.deladdresslist li {
+    width: 50%;
+    border: 1px solid #4183D7;
+    display: inline-block;
+    /*    vertical-align: top;*/
+    clear: both;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.deladdresslist li .deladdlist {
+    padding: 5px;
+    background: #4183D7;
+    text-align: center;
+    width: 100%;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.deladdresslist li .deladdlist h3 {
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.deladdresslist li .deladdlistt {
+    background: #2285B5;
+    text-align: center;
+    width: 100%;
+    height: 370px;
+    float: left;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.deladdresslist li .deladdlistt .deladddetails li {
+    display: block;
+    width: 100%;
+    border: 0 none;
+    clear: both;
+    text-align: left;
+}
+
+.deladdresslist li .deladdlistt .deladddetails li p {
+    color: #ffffff;
+    text-transform: capitalize;
+}
+
+.deladdresslist li .deladdlistt .deladddetails li p span {
+    color: #ffffff;
+    font-weight: 500;
+    !important text-transform: capitalize;
+}
+
+.delete {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.marg {
+    margin: 5px auto;
+}
+
+.confirmdetails {
+    overflow-x: auto;
+}
+
+.confirmdetails h3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-decoration-line: underline;
+}
+
+.confirmdetails p {
+    text-transform: capitalize;
+    font-weight: 600;
+    text-align: left;
+}
+
+.confirmdetails p i {
+    font-weight: 400;
+}
+
+.itembox .grand {
+    text-align: center;
+    font-weight: 800;
+    color: #96281B;
+    border: 1px solid #19B5FE;
+    padding: 5px;
+}
+
+.itembox .grand span {
+    color: #DB0A5B;
+}
+
+.itembox table .tabcent {
+    text-align: center;
+}
+
+.itembox table .tabbold {
+    font-weight: 700;
+}
+
+.mordlist li {
+    display: block;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.mordlist li .inputne {
+    background: url("../img/profile.png") no-repeat left center;
+    padding-left: 40px;
+}
+
+.mordlist li .inputnew {
+    background: url("../img/phone.png") no-repeat left center;
+    padding-left: 40px;
+}
+
+.mordlist li .inputnews {
+    background: url("../img/mail.png") no-repeat left center;
+    padding-left: 40px;
+}
+
+.mordlist li .inputnewd {
+    background: url("../img/pwd.png") no-repeat left center;
+    padding-left: 40px;
+}
+
+.mordlist li .lone {
+    color: #E08283;
+    !important text-align: center;
+}
+
+.mordlist li .lone:hover {
+    color: red;
+    !important
+}
+
+.mordlist li .alone {
+    text-align: center;
+    width: 10em;
+}
+
+.sectionseven {
+    margin: 20px auto;
+    min-height: 800px;
+    clear: both;
+}
+
+.thank {
+    border: 1px solid #019875;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.thank h1 {
+    font-weight: 500;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+.thank h1 .t {
+    color: #F7CA18;
+}
+
+.thank h1 .th {
+    color: #22313F;
+}
+
+.thank h1 .oid {
+    color: #BE90D4;
+}
+
+.thank p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#myform {
+    padding: 5px;
+}
+
+.qty {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}
+
+input.qtyplus {
+    width: 25px;
+    height: 25px;
+}
+
+input.qtyminus {
+    width: 25px;
+    height: 25px;
+}
+
+.sectioneight {
+    margin: 20px auto;
+    min-height: 800px;
+    clear: both;
+}
+
+.teamabout {
+    width: 100%;
+    float: left;
+    clear: both;
+    padding: 6px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #3A539B;
+    margin: 10px auto;
+    border-radius: 6px;
+}
+
+.teambanner {
+    padding: 20px;
+    clear: both;
+    width: 100%;
+    float: left;
+}
+
+.teambanner img {
+    width: 100%;
+    max-height: 400px;
+}
+
+.aboutkhaana {
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.aboutkhaana h3 {
+    text-align: center;
+    font-weight: 700;
+    background: url('../img/underline.png') no-repeat scroll center 28px;
+    padding-bottom: 20px;
+}
+
+.aboutkhaana p {
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+}
+
+.aboutus {
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.aboutus h3 {
+    text-align: center;
+    font-weight: 700;
+    margin: 0px auto;
+    background: url('../img/underlines.png') no-repeat scroll center 28px;
+    padding-bottom: 20px;
+}
+
+.aboutus p {
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+}
+
+.teamimg {
+    margin: 10px auto;
+}
+
+.teamimg .teamcolor {
+    color: #049372;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 5px 5px 5px #049372;
+}
+
+.teamlists {
+    margin: 0px auto;
+    padding: 20px;
+}
+
+.teamli li {
+    width: 33%;
+    display: inline-block;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.teamli li img {
+    text-align: center;
+    width: auto;
+    border-radius: 5px;
+}
+
+.teamli li h5 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 5px auto;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+.teamli li p {
+    color: #049372;
+    font-size: 14px;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.teamdesc {
+    text-align: center;
+    width: 500px;
+    height: auto;
+}
+
+.teamdesc h6 {
+    text-align: center;
+}
+
+.sectionnine {
+    margin: 20px auto;
+    min-height: 800px;
+    clear: both;
+}
+
+.techpart {
+    margin: 0px auto;
+    padding: 20px;
+}
+
+.techlist li {
+    border: 1px solid #D24D57;
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+    clear: both;
+}
+
+.techlist li .techpartlist {
+    padding: 5px;
+}
+
+.techlist li .techpartlist .techhead {
+    background: #4183D7;
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+.techlist li .techpartlist .techhead h4 {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.techlist li .techpartlist .techbody img {
+    width: 100%;
+    margin: 10px auto;
+    float: left;
+}
+
+.techlist li .techpartlist .techtail {
+    text-align: center;
+    margin: 5px;
+}
+
+.techlist li .techpartlist .techtail p {
+    font-size: 14px;
+}
+
+.techlist li .techpartlist .techtail a {
+    border: 1px solid #E87E04;
+    padding: 3px;
+    text-align: center;
+}
+
+.techlist li .techpartlist .techtail a .buttn {
+    background: none;
+}
+
+.sectionten {
+    margin: 20px auto;
+    min-height: 800px;
+    clear: both;
+}
+
+.topicsect {
+    margin: 0px auto;
+    width: 100%;
+    float: left;
+    clear: both;
+}
+
+.topicsect .topiclist .dist {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+    border: 1px solid lightblue;
+    padding: 10px;
+    float: left;
+    clear: both;
+}
+
+.topicsect .topiclist .dist .topicalist {
+    margin: 0px auto;
+    float: left;
+}
+
+.topichead {
+    clear: both;
+}
+
+.topichead img {
+    width: auto;
+    max-height: 400px;
+}
+
+.topicbody {
+    clear: both;
+}
+
+.topicbody h3 {
+    color: #D35400;
+    font-weight: 500;
+}
+
+.topicbody .topicdatecomment li {
+    float: left;
+}
+
+.topicbody .topicdatecomment li .s1 {
+    float: left;
+    margin-right: 3px;
+}
+
+.topicbody .topicdatecomment li p {
+    float: left;
+    font-size: 16px;
+}
+
+.topicbody .topicdatecomment li:last-child {
+    float: right;
+}
+
+.topicbody .topicdatecomment li:last-child .s2 {
+    float: left;
+    margin-right: 3px;
+}
+
+.topictail {
+    clear: both;
+}
+
+.topictail p {
+    font-size: 16px;
+    color: #22313F;
+    text-align: center;
+}
+
+.topictails {
+    width: 100%;
+    float: left;
+    clear: both;
+}
+
+.bloglist li {
+    display: inline-block;
+    margin: 0 10px;
+    vertical-align: top;
+}
+
+.bloglist li a {
+    display: block;
+    width: 50px;
+    height: 60px;
+    border: 0px;
+    text-indent: -1000em;
+    background: url("../img/social.png") no-repeat center;
+}
+
+#s8 {
+    background-position: -37px 0px;
+}
+
+#s9 {
+    background-position: -216px 0px;
+}
+
+.getapp {
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    clear: both;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.getapp h4 {
+    font-family: "Roboto", sans-serif;
+}
+
+.getapp span {
+    color: darkgreen;
+}
+
+.getrecipe {
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    -o-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    clear: both;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.getrecipe .recipes h3 {
+    color: #D35400;
+    font-weight: 500;
+}
+
+.getrecipe .recipes .recipe li {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin: 4px auto;
+    border-bottom: 1px solid #f5f5f5;
+    padding-bottom: 5px;
+}
+
+.getrecipe .recipes .recipe li .r1 {
+    float: left;
+    margin-right: 10px;
+}
+
+.getrecipe .recipes .recipe li a {
+    float: left;
+    font-size: 20px;
+}
+
+.archives {
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    -o-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    clear: both;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.archives .archive h3 {
+    color: #D35400;
+    font-weight: 500;
+}
+
+.archives .archive .arch li {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin: 4px auto;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.archives .archive .arch li .c1 {
+    float: left;
+    margin-right: 10px;
+}
+
+.archives .archive .arch li a {
+    float: left;
+    font-size: 20px;
+}
+
+.sectioneleven {
+    margin: 20px auto;
+    min-height: 800px;
+    clear: both;
+}
+
+.career {
+    margin: 10px auto;
+    padding: 20px;
+    clear: both;
+}
+
+.carhead {
+    margin: 10px auto;
+}
+
+.carhead h3 {
+    font-weight: 500;
+    color: #26C281;
+    border-bottom: 2px solid #26C281;
+}
+
+.carbody {
+    margin: 20px auto;
+}
+
+.carbody p {
+    font-size: 16px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.cartail {
+    margin: 10px auto;
+}
+
+.cartail p {
+    font-weight: 500;
+}
+
+.sectiontwelve {
+    margin: 20px auto;
+    padding-bottom: 20px;
+    min-height: 800px;
+    clear: both;
+}
+
+.contact {
+    margin: 30px auto;
+    float: left;
+    clear: both;
+    width: 100%;
+    /*
+    padding-top: 3px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+*/
+}
+
+.contact h4 {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.addlist li h3 {
+    text-align: center;
+}
+
+.addlist li h5 {
+    margin-left: 45px;
+    padding: 10px;
+}
+
+.addlist li img {
+    float: left;
+    margin: 0px auto;
+    padding-left: 5px;
+}
+
+.social {
+    margin: 10px auto;
+}
+
+.social h4 {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.sociallist li {
+    display: inline-block;
+    margin: 0 10px;
+    vertical-align: top;
+}
+
+.sociallist li a {
+    display: block;
+    width: 50px;
+    height: 60px;
+    border: 0px;
+    text-indent: -1000em;
+    background: url("../img/social.png") no-repeat center;
+}
+
+#s1 {
+    background-position: -37px 0px;
+}
+
+#s2 {
+    background-position: -97px 0px;
+}
+
+#s3 {
+    background-position: -186px -57px;
+}
+
+#s4 {
+    background-position: -127px -57px;
+}
+
+#s5 {
+    background-position: -156px 0px;
+}
+
+#s6 {
+    background-position: -216px 0px;
+}
+
+#s7 {
+    background-position: -246px -57px;
+}
+
+.maps {
+    margin: 30px auto;
+    width: 100%;
+    float: left;
+    clear: both;
+    /*
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+*/
+}
+
+.sectionthirteen {
+    margin: 20px auto;
+    min-height: 800px;
+    clear: both;
+}
+
+.picandname {
+    margin: 20px auto;
+    float: left;
+    width: 100%;
+    background: #eeeeee;
+    /*    background: url("../img/this.jpg") repeat scroll 0 0;*/
+    border: 3px solid #22313f;
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(108, 122, 137, 0.75);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(108, 122, 137, 0.75);
+    -o-box-shadow: 2px 2px 2px 0px rgba(108, 122, 137, 0.75);
+    box-shadow: 2px 2px 2px 0px rgba(108, 122, 137, 0.75);
+    clear: both;
+}
+
+.userdetail {
+    margin: 5px auto;
+    padding: 20px;
+}
+
+.usernames {
+    float: left;
+    width: 80%;
+}
+
+.edt {
+    float: right;
+    width: auto;
+}
+
+.usernameslist li {
+    display: block;
+    margin-top: 15px;
+}
+
+.usernameslist li .inptname {
+    background: url("../img/name.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.usernameslist li .inptphone {
+    background: url("../img/phone.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.usernameslist li .inptmail {
+    background: url("../img/mail.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.adder {
+    margin: 10px auto;
+    padding: 4px;
+}
+
+.adder h3 {
+    color: #000000;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.adderslist li {
+    display: block;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.adderslist li .adders {
+    background: url("../img/address.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.adderslist li .addersname {
+    background: url("../img/name.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.adderslist li .addersphone {
+    background: url("../img/phone.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.adderslist li .addersmail {
+    background: url("../img/mail.png") no-repeat 0px center;
+    padding-left: 40px;
+}
+
+.addresspart {
+    margin: 0px auto;
+    padding: 10px;
+    clear: both;
+}
+
+.addresslist li {
+    display: inline-block;
+    clear: both;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    width: 50%;
+}
+
+.addresslist li .addlist {
+    padding: 5px;
+    background: #4183D7;
+    text-align: center;
+    width: 100%;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.addresslist li .addlist h3 {
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.addresslist li .addlistt {
+    background: #2285B5;
+    text-align: center;
+    width: 100%;
+    height: 370px;
+    float: left;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.addresslist li .addlistt .adddetails li {
+    display: block;
+    width: 100%;
+    border: 0 none;
+    clear: both;
+    text-align: left;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.addresslist li .addlistt .adddetails li p {
+    color: #ffffff;
+    text-transform: capitalize;
+}
+
+.addresslist li .addlistt .adddetails li p span {
+    color: #ffffff;
+    font-weight: 500;
+    !important text-transform: capitalize;
+}
+
+.rq {
+    color: #FF0000;
+    font-size: 10pt;
+}
+
+.edel {
+    margin: 10px auto;
+}
+
+.delete {
+    text-align: center;
+    float: left;
+}
+
+.edits {
+    margin: 10px auto;
+    text-align: center;
+    float: right;
+}
+
+.addmargin {
+    margin: 5px auto;
+}
+
+.sectionfourteen {
+    margin: 20px auto;
+    min-height: 800px;
+    clear: both;
+}
+
+.privacy {
+    margin: 10px auto;
+}
+
+.privacy h2 {
+    font-weight: 500;
+    color: #26C281;
+    border-bottom: 2px solid #26C281;
+}
+
+.privacy h4 {
+    font-weight: 600;
+    color: #3A539B;
+}
+
+.privacy .para {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.privacy .para a {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.sectionfifteen {
+    margin: 20px auto;
+    min-height: 800px;
+    clear: both;
+}
+
+.terms {
+    margin: 10px auto;
+}
+
+.terms h2 {
+    font-weight: 500;
+    color: #26C281;
+    border-bottom: 2px solid #26C281;
+}
+
+.terms h4 {
+    font-weight: 600;
+    color: #3A539B;
+}
+
+.footnotes {
+    margin: 0px auto;
+    width: 100%;
+    float: left;
+    clear: both;
+}
+
+.footmenu {
+    margin: 0px auto;
+    padding-top: 10px;
+}
+
+.footlist li {
+    padding-right: 30px;
+    text-align: center;
+    display: inline-block;
+}
+
+.footlist li a {
+    text-decoration: none;
+    color: #161617;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.footlist li a:hover {
+    color: #674172;
+}
+
+.footcopy {
+    margin: 0px auto;
+    padding-top: 10px;
+}
+
+.footcopy p {
+    font-size: 16px;
+    color: #E87E04;
+    text-align: center;
+}
+
+@media only screen and (min-width: 320px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 16px;
+    }
+    .tracklist {
+        left: 65px;
+    }
+    .findernav li {
+        float: none;
+        text-align: center;
+        margin: 10px 0px;
+    }
+    .deladdresslist li {
+        width: 100%;
+    }
+    .addresslist li {
+        width: 100%;
+    }
+    .teamli li {
+        width: 100%;
+    }
+    .teamdesc {
+        width: inherit;
+    }
+    .techlist li {
+        width: 100%;
+        display: block;
+        margin-top: 6px;
+    }
+    .footlist li {
+        display: block;
+        padding-right: 0px;
+    }
+    .knowmenu li {
+        display: block;
+        width: 100%;
+    }
+    .hotelist li .wrapper {
+        max-height: 100%;
+    }
+    .hotelist li .wrapper .banner {
+        float: none;
+        width: 100%;
+        height: auto;
+    }
+    .profedit .profiledit {
+        left: -13em;
+    }
+    /*
+    .selectouter { width: 100%; display: block;}
+    .timemenu li { width: 100%; border-right: none; }
+    .hotelist li .wrapper .bannen { height: auto; }
+    .qty { width: 15px; }
+    input.qtyplus { width: 15px; }
+    input.qtyminus { width: 15px; }
+*/
+}
+
+@media only screen and (min-width: 360px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 17px;
+    }
+    .tracklist {
+        left: 86px;
+    }
+    .footlist li {
+        display: block;
+        padding-right: 0px;
+    }
+    .addresslist li {
+        width: 100%;
+    }
+    /*
+    .qty { width: 15px; }
+    input.qtyplus { width: 15px; }
+    input.qtyminus { width: 15px; }
+*/
+}
+
+@media only screen and (min-width: 380px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 20px;
+    }
+    .tracklist {
+        left: 100px;
+    }
+    .footlist li {
+        display: block;
+        padding-right: 0px;
+    }
+    /*
+    .qty { width: 15px; }
+    input.qtyplus { width: 15px; }
+    input.qtyminus { width: 15px; }
+*/
+}
+
+@media only screen and (min-width: 400px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 23px;
+    }
+    .tracklist {
+        left: 105px;
+    }
+    .footlist li {
+        display: block;
+        padding-right: 0px;
+    }
+}
+
+@media only screen and (min-width: 420px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 27px;
+    }
+    .tracklist {
+        left: 116px;
+    }
+    .footlist li {
+        display: block;
+        padding-right: 0px;
+    }
+    .hotelist li .wrapper {
+        max-height: 100%;
+        width: 100%;
+    }
+    /*
+    .qty { width: 25px; }
+    input.qtyplus { width: 25px; }
+    input.qtyminus { width: 25px; }
+*/
+}
+
+@media only screen and (min-width: 460px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 33px;
+    }
+    .tracklist {
+        left: 136px;
+    }
+    .footlist li {
+        display: block;
+        padding-right: 0px;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 37px;
+    }
+    .tracklist {
+        left: 145px;
+    }
+    .footlist li {
+        display: block;
+        padding-right: 0px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 40px;
+    }
+    .tracklist {
+        left: 154px;
+    }
+    .footlist li {
+        display: block;
+        padding-right: 0px;
+    }
+    .teamli li {
+        width: 49%;
+    }
+    .teamdesc {
+        width: inherit;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 57px;
+    }
+    .tracklist {
+        left: 204px;
+    }
+    .footlist li {
+        display: block;
+        padding-right: 0px;
+    }
+    .teamli li {
+        width: 49%;
+    }
+    .teamdesc {
+        width: inherit;
+    }
+}
+
+@media only screen and (min-width: 640px) {
+    .tracks {
+        float: none;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 63px;
+    }
+    .tracklist {
+        left: 225px;
+    }
+    .findernav li {
+        float: left;
+    }
+    .selectouter {
+        width: 11em;
+    }
+    .footlist li {
+        float: none;
+        padding-right: 0px;
+    }
+    .teamli li {
+        width: 32%;
+    }
+    .teamdesc {
+        width: inherit;
+    }
+    /*  .timemenu li { width: 24%; border-right: 2px solid white; }*/
+}
+
+@media only screen and (min-width: 767px) {
+    .tracks {
+        float: right;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 38px 0 38px;
+    }
+    .tracklist {
+        left: -49px;
+    }
+    .knowmenu li {
+        display: inline-block;
+        width: 24%;
+    }
+    .footlist li {
+        display: inline-block;
+        padding-right: 20px;
+    }
+    .hotelist li .wrapper {
+        max-height: 120px;
+    }
+    .hotelist li .wrapper .banner {
+        float: left;
+        width: 120px;
+        height: 120px;
+    }
+    .techlist li {
+        width: 49%;
+        display: inline-block;
+        margin-top: 6px;
+    }
+    .addresslist li {
+        width: 50%;
+    }
+    /*
+    .selectouter { width: 15em; }
+    .timemenu li { width: 24%; border-right: 2px solid white; }
+    .hotelist li .wrapper .bannen { height: 180px; }
+*/
+}
+
+@media only screen and (min-width: 768px) {
+    .tracks {
+        float: right;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 38px 0 38px;
+    }
+    .tracklist {
+        left: -16px;
+    }
+    .knowmenu li {
+        display: inline-block;
+        width: 24%;
+    }
+    .footlist li {
+        display: inline-block;
+        padding-right: 20px;
+    }
+    /*  .timemenu li { width: 24%; border-right: 2px solid white; }*/
+}
+
+@media only screen and (min-width: 800px) {
+    .menu li {
+        display: inline-block;
+        padding: 0px 38px 0 38px;
+    }
+    .tracklist {
+        left: 0em;
+    }
+    .knowmenu li {
+        display: inline-block;
+        width: 24%;
+    }
+    .footlist li {
+        display: inline-block;
+        padding-right: 20px;
+    }
+    /*  .timemenu li { width: 24%; border-right: 2px solid white; }*/
+}
+
+@media only screen and (min-width: 920px) {
+    .menu li {
+        display: inline-block;
+        padding: 0px 38px 0 38px;
+    }
+    .tracklist {
+        left: 0em;
+    }
+    .knowmenu li {
+        display: inline-block;
+        width: 24%;
+    }
+    .footlist li {
+        display: inline-block;
+        padding-right: 20px;
+    }
+    /*  .timemenu li { width: 24%; border-right: 2px solid white; }*/
+}
+
+@media only screen and (min-width: 1024px) {
+    .menu li {
+        display: inline-block;
+        padding: 0px 38px 0 38px;
+    }
+    .tracklist {
+        left: 0em;
+    }
+    .knowmenu li {
+        display: inline-block;
+        width: 24%;
+    }
+    .deladdresslist li {
+        width: 50%;
+    }
+    .footlist li {
+        display: inline-block;
+        padding-right: 30px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .tracks {
+        float: right;
+    }
+    .menu li {
+        display: inline-block;
+        padding: 0px 38px 0 38px;
+    }
+    .tracklist {
+        left: 0em;
+    }
+    .findernav li {
+        float: left;
+    }
+    .knowmenu li {
+        display: inline-block;
+        width: 19%;
+    }
+    .footlist li {
+        display: inline-block;
+        text-align: center;
+        padding-right: 30px;
+    }
+    .teamli li {
+        width: 33%;
+    }
+    .teamdesc {
+        width: 500px;
+    }
+    .techlist li {
+        width: 33%;
+        display: inline-block;
+    }
+    /*  .selectouter { width: 17em; }
+    .timemenu li { width: 24%; border-right: 2px solid white; }
+*/
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    *:first-line {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    img {
+        max-width: 100% !important;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

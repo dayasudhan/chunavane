@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>  
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+        <title>Khaanavali - Online Food order</title>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:regular,700,600&amp;latin" type="text/css" />
+        <!-- Essential styles -->
+        <link rel="stylesheet" href="http://themes.gie-art.com/dlapak/assets/bootstrap/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="http://themes.gie-art.com/dlapak/assets/plugins/font-awesome/css/font-awesome.css" type="text/css"> 
+        <!-- Dlapak styles -->
+        <link id="theme_style" type="text/css" href="http://themes.gie-art.com/dlapak/assets/css/style1.css" rel="stylesheet" media="screen">
+        <!-- Favicon -->
+        <link href="assets/img/favicon.png" rel="icon" type="image/png">
+        <!-- Assets -->
+        <link rel="stylesheet" href="http://themes.gie-art.com/dlapak/assets/plugins/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="http://themes.gie-art.com/dlapak/assets/plugins/owl-carousel/owl.theme.css">
+        <!-- JS Library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    
+        <script src="/javascripts/customer.js"></script>
+    </head>
+    <body ng-app="mainModule" ng-controller="mainController" >
+        <div class="wrapper">
+            <header class="navbar navbar-default navbar-fixed-top navbar-top" data-ng-init="getCurrentAddress()">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!--button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button-->
+                        <a href="/#/home" class="navbar-brand"><span class="logo"><i class="fa fa-recycle"></i> Khaanavali </span></a>
+                         
+                    </div>
+
+                </div>
+
+            </header>
+                            
+            <div >
+               <div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="content">
+                <div id="accordion">
+                    <ul>
+                    <li><h5> I am facing an issue with website / app</h5></li>
+                    <h6> Please write to us at khaanavali@gmail.com  with all the details. </h6>
+                 
+                    <li><h5>Can I place an order over a phone?</h5></li>
+                    <h6><div>All orders are to be placed through the website or app only</div></h6>
+                
+           
+                    <li><h5>Which are the cities you currently serve?</h5></li>
+                    <div><h6>Currently we are serving Bangalore</h6></div>
+              
+                    <li><h5>Will you be responsible for the quality of the food?</h5></li>
+                    <div><h6>We only collect food on your behalf from the outlets and deliver it, and we won’t be accountable for the quality of the food. In case you have any feedback, please write in through the contact us page and we’ll take it up with the restaurant in question. Don't forget to tell us the order number or restaurant name</h6></div>
+
+
+                    <li><h5>How do I contact Khaanavali customer care?</h5></li>
+                    <div><h6>You can always reach us through chat option on our website, write to us at khaanavali@gmail.com </h6></div>
+
+                    <li><h5>I am a restaurant owner, how do I tie-up with Khaanavali</h5></li>
+                    <div><h6>You can write to us at khaanavali@gmail.com with the details of your restaurant and contact person's name, mobile and email-id. Our sales team will get in touch with you post reviewing the same.</h6></div>
+
+                    <li><h5>What are your delivery hours?</h5></li>
+                    <div><h6>Our delivery hours are subjected to the rules of your city and the timings of each restaurant.</h6></div>
+
+                    <li><h5>How much time do you take to deliver?</h5></li>
+                    <div><h6>This is usually between 30 to 60 minutes. We mention estimated time on details of every restaurant</h6></div>
+
+                    <li><h5>Can I order from multiple restaurant in a single order?</h5></li>
+                    <div><h6>No. However, you can place orders for individual items from different restaurants as we do not impose a minimum order value.</h6></div>
+
+                    <li><h5>Can I order in advance?</h5></li>
+                    <div><h6>No, you cannot order in advance. All our orders are placed and executed on-demand.</h6></div>
+
+                    
+                    </ul>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+
+
+      
+    <div class="footer">
+        <div class="container">
+        <ul class="pull-left footer-menu">
+            <li>
+                <a href="https://play.google.com/store/apps/details?id=khaanavali.customer" target="_blank"><img src="images/googleplay2.png"></a>
+                <a href="/#/home"> home </a> 
+                <a href="/extra/aboutus.html"> About us </a>
+                <a href="/extra/contact.html"> Contact us </a> 
+                <a href="/extra/termsandcondition.html"> Terms & Condition </a>
+                <a href="/extra/faq.html"> faq </a> 
+            </li>
+        </ul>
+
+        </div>
+    </div
+</div>
+<!-- Essentials -->
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/owl-carousel/owl.carousel.js"></script>
+<script src="assets/plugins/counter/jquery.countTo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // ===========Featured Owl Carousel============
+        if ($(".owl-carousel-featured").length > 0) {
+            $(".owl-carousel-featured").owlCarousel({
+                items: 3,
+                lazyLoad: true,
+                pagination: true,
+                autoPlay: 5000,
+                stopOnHover: true
+            });
+        }
+
+        // ==================Counter====================
+        $('.item-count').countTo({
+            formatter: function (value, options) {
+                return value.toFixed(options.decimals);
+            },
+            onUpdate: function (value) {
+                console.debug(this);
+            },
+            onComplete: function (value) {
+                console.debug(this);
+            }
+        });
+    });
+</script>
+</body>
+</html> 

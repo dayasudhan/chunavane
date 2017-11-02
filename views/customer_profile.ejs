@@ -1,0 +1,206 @@
+<div class="sectionthirteen">
+    <div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ul class="breadcrumb">
+                <li><a href="/" target="_parent">Home</a></li>
+                <li class="active">Profile</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row picandname">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 userdetail">
+                <div class="usernames">
+                    <ul class="usernameslist">
+                        <li>
+                            <p><b>Name</b> : {{profile.name}}</p>
+                        </li>
+                        <li>
+                            <p><b>Phone</b> : {{profile.phone}}</p>
+                        </li>
+                        <li>
+                            <p><b>E-Mail</b> : {{profile.email}}</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--
+                <div class="edt">
+                    <a href="" data-toggle="modal" data-target="#profileModal" ng-click=" ()"><img src="../public/sandy/img/edit.png"/></a>
+                    <div class="modal fade" id="profileModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <ul class="adderslist">
+                                        <li>
+                                            <input type="text" class="form-control addersname" ng-model="name" placeholder="Name"> </li>
+                                        <li>
+                                            <input type="text" class="form-control addersphone" ng-model="phone" placeholder="Phone"> </li>
+                                        <li>
+                                            <input type="text" class="form-control addersmail" ng-model="email" placeholder="Mail ID"> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-info btn-sm" data-dismiss="modal" ng-click=" ()">SAVE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+-->
+
+            </div>
+        </div>
+        <div class="row picandname">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 userdetail">
+                <div class="addresspart">
+                    <ul class="addresslist">
+                        <li ng-repeat="address in profile.addresses">
+                            <div class="addlist">
+                                <h3>{{address.label}}</h3> </div>
+                            <div class="addlistt">
+                                <ul class="adddetails">
+                                    <li>
+                                        <p><span>Address Line 1 :</span> {{address.addressLine1}}</p>
+                                    </li>
+                                    <li>
+                                        <p><span>Address Line 2 :</span> {{address.addressLine2}}</p>
+                                    </li>
+                                    <!--
+                                    <li>
+                                        <p><span>Street         :</span> {{address.street}}</p>
+                                    </li>
+-->
+                                    <li>
+                                        <p><span>Landmark       :</span> {{address.LandMark}}</p>
+                                    </li>
+                                    <!--
+                                    <li>
+                                        <p><span>Areaname       :</span> {{address.areaName}}</p>
+                                    </li>
+-->
+                                    <li>
+                                        <p><span>City           :</span> {{address.city}}</p>
+                                    </li>
+                                    <li>
+                                        <p><span>Zip            :</span> {{address.zip}}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="edel">
+                                <div class="delete">
+                                    <button type="submit" class="btn btn-danger btn-sm" ng-click="deleteAddress(address)">REMOVE</button>
+                                </div>
+                                <!--
+                                <div class="edits">
+                                    <button type="reset" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addressModal" ng-click="editAddressFirst(address)">EDIT</button>
+                                    <div class="modal fade" id="addressModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <div class="adder">
+                                    <h3><input type="text" class="form-control adders" ng-model="label" placeholder="Label"></h3> </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <ul class="adderslist">
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="addressLine1" placeholder="Addressline 1"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="addressLine2" placeholder="Addressline 2"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="street" placeholder="Street"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="LandMark" placeholder="Landmark"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="areaname" placeholder="Areaname"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="city" placeholder="City"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="zip" placeholder="zip"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="latitude" placeholder="Latitude"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="longitude" placeholder="Longitude"> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-info btn-sm" data-dismiss="modal" ng-click="editAddress()">SAVE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                </div>
+-->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <a href="#" ng-show="isLoggedIn" data-toggle="modal" data-target="#newaddressModal">
+                    <button type="submit" class="btn btn-primary btn-md addmargin">ADD NEW ADDRESS</button>
+                </a>
+                <div class="modal fade" id="newaddressModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <label class="rq">All Fields are Mandatory</label>
+                                <div class="adder">
+                                    <h3><input required type="text" class="form-control adders" ng-model="label" placeholder="Label" maxlength="15"></h3> </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <ul class="adderslist">
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="addressLine1" placeholder="Addressline 1" maxlength="60"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="addressLine2" placeholder="Addressline 2" maxlength="60"> </li>
+                                        <!--
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="street" placeholder="Street" maxlength="15"> </li>
+-->
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="LandMark" placeholder="Landmark" maxlength="30"> </li>
+                                        <!--
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="areaname" placeholder="Areaname" maxlength="15"> </li>
+-->
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="city" placeholder="City" maxlength="20"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="zip" placeholder="zip" maxlength="6"> </li>
+                                        <!--
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="latitude" placeholder="Latitude"> </li>
+                                        <li>
+                                            <input type="text" class="form-control adders" ng-model="longitude" placeholder="Longitude"> </li>
+-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary btn-sm" data-dismiss="modal" ng-click="addAddress()">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+                <button type="submit" class="btn btn-success btn-md addmargin">SAVE</button>
+            </div>
+-->
+        </div>
+    </div>
+</div>

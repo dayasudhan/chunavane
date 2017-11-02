@@ -1,0 +1,525 @@
+<!--<section class="hero" >
+                <div class="container " style="color:white">
+                <div class="row">
+                <div class="col-md-3 col-sm-3">
+                <h2 class="hero-title">{{hotel.hotel.name}}</h2>
+                  <p class="hero-description hidden-xs">Speciality    : {{hotel.speciality}}</p>
+                  <p  class="hero-description hidden-xs">Phone No:{{hotel.phone}}</p>
+                   <p class="hero-description hidden-xs">Delivery Range  : {{hotel.deliverRange}} Km</p>
+                    <p class="hero-description hidden-xs">Delivery Charge  : {{hotel.deliverCharge}} Rs</p>
+                </div>
+                
+                  <div class="col-md-3 col-sm-3">
+
+                  <div ng-if="user.local.email.length > 1">
+                   <p class="hero-title"><u>Address</u></p>
+                </div>
+                <div ng-else>
+                    <p class="hero-title"><u>Address2</u></p>
+                </div>
+                  <p class="hero-title"><u>Address</u></p>
+                  <p class="hero-description hidden-xs">{{hotel.address.addressLine1}}</p>
+                  <p class="hero-description hidden-xs">{{hotel.address.LandMark}}</p>
+                  <p class="hero-description hidden-xs">{{hotel.address.areaName}}</p>
+                  <p class="hero-description hidden-xs">{{hotel.address.city}}</p>
+                  </div>
+
+                  <div class="col-md-3 col-sm-3">
+                    <p class="hero-title"><u>Delivery Areas</u></p>
+                    <div ng-repeat="areas in hotel.deliverAreas">
+                    <p class="hero-description hidden-xs"> {{areas.name}}</p>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-3 col-sm-3">
+                    <p class="hero-title"><u>Order Timings</u></p>
+                    <span ng-if= "'Yes' === hotel.orderAcceptTimings.Morning.available">
+                    <p class="hero-description hidden-xs"> Morning : {{hotel.orderAcceptTimings.Morning.startTime}} - {{hotel.orderAcceptTimings.Morning.endTime}}</p>
+                    </span>
+                    
+                    <span ng-if= "'Yes' === hotel.orderAcceptTimings.Lunch.available">
+                    <p class="hero-description hidden-xs"> Lunch : {{hotel.orderAcceptTimings.Lunch.startTime}} - {{hotel.orderAcceptTimings.Lunch.endTime}}</p>
+                    </span>
+
+                    <span ng-if= "'Yes' === hotel.orderAcceptTimings.Dinner.available">
+                    <p class="hero-description hidden-xs"> Dinner : {{hotel.orderAcceptTimings.Dinner.startTime}} - {{hotel.orderAcceptTimings.Dinner.endTime}}</p>
+                    </span>
+                 
+                  </div>
+                  
+                </div>
+
+                </div>
+            </section>
+
+<section class="main">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-3 col-sm-3">
+
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <h3>Trends</h3>
+                                </div>
+                                <div class="widget-body">
+                                    <ul class="trends">
+                                        <li><a href="#">Northa Karnataks dishes &nbsp;<span class="item-numbers">(2,342)</span></a></li>
+                                        <li><a href="#">South Karnataks dishes &nbsp;<span class="item-numbers">(2,342)</span></a></li>
+                                        <li><a href="#">Idly/Dosa &nbsp;<span class="item-numbers">(2,342)</span></a></li>
+                                        <li><a href="#">Biryani &nbsp;<span class="item-numbers">(2,342)</span></a></li>
+                                        <li><a href="#">North Indian &nbsp;<span class="item-numbers">(2,342)</span></a></li>
+                     
+                  
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="banner-widget">
+                                <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Uttar_Karnataka_food.JPG/1024px-Uttar_Karnataka_food.JPG" alt="banner" class="img-responsive">
+                            </div>
+                        </div>
+                    </div-->
+<div class="sectionsix">
+    <div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ul class="breadcrumb">
+                <li><a href="/" target="_parent">Home</a></li>
+                <li class="active">Menu</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="khannaam">
+                <h2 ng-click="currentHotel($index)"><b>{{hotel.hotel.name}}</b></h2>
+                <p>Native Style</p>
+                <div class="khannaammenu">
+                    <ul class="khannaamlist">
+                        <li>
+                            <h5>{{hotel.deliveryTime}} Mins</h5> </li>
+                        <li>
+                            <h5>Min. &#8377; {{hotel.minimumOrder}}</h5> </li>
+                    </ul>
+                </div>
+                <div class="timing">
+                    <div class="timmenu">
+                        <ul class="timlist">
+                            <li><i class="fa fa-sun-o  fa-lg fa-fw"></i>&nbsp; <b>BREAKFAST:</b> {{hotel.orderAcceptTimings.Morning.startTime}} - {{hotel.orderAcceptTimings.Morning.endTime}} <b>;</b> <i class="fa fa-clock-o  fa-lg fa-fw"></i>:&nbsp; {{hotel.orderAcceptTimings.Morning.available}}</li>
+                            <li><i class="fa fa-cloud  fa-lg fa-fw"></i>&nbsp; <b>LUNCH:</b> {{hotel.orderAcceptTimings.Lunch.startTime}} - {{hotel.orderAcceptTimings.Lunch.endTime}} <b>;</b> <i class="fa fa-clock-o  fa-lg fa-fw"></i>:&nbsp; {{hotel.orderAcceptTimings.Lunch.available}}</li>
+                            <li><i class="fa fa-moon-o fa-lg fa-fw"></i>&nbsp; <b>DINNER:</b> {{hotel.orderAcceptTimings.Dinner.startTime}} - {{hotel.orderAcceptTimings.Dinner.endTime}} <b>;</b> <i class="fa fa-clock-o  fa-lg fa-fw"></i>:&nbsp; {{hotel.orderAcceptTimings.Dinner.available}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="menselect">
+                <table class="table table-bordered table-responsive">
+                    <thead class="tabux">
+                        <tr>
+                            <th class="tabcent">NAME</th>
+                            <th class="tabcent">PRICE</th>
+                            <th class="tabcent">QUANTITY</th>
+                            <th class="tabcent">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="menu in hotel.menu">
+                            <td class="tabcents"><img src="{{menu.logo}}" alt="Food Menu" /> <b>{{menu.name}}</b></br> {{menu.description}}</td>
+                            <td class="tabcent">&#8377; {{menu.price}}</td>
+                            <td class="tabcent">
+                                <input type="number" ng-model="menu.qty" min="0" max="15"> </td>
+                            <td class="tabcent">&#8377; {{menu.price * menu.qty }}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="tabbold">Total</td>
+                            <td></td>
+                            <td></td>
+                            <td class="tabbold">&#8377; {{total() }}</td>
+                        </tr>
+                        <tr>
+                            <td class="tabbold">Delivery Charges</td>
+                            <td></td>
+                            <td></td>
+                            <td class="tabbold">&#8377; {{hotel.deliverCharge}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <h3 class="grand">GRAND TOTAL <span>is</span> &#8377; {{ grandtotal() }} </h3> </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="mencheck">
+            <a href="#" ng-show="isLoggedIn" data-toggle="modal" data-target="#meraModal">
+                <button type="button" class="btn btn-primary">CHECKOUT</button>
+            </a>
+            <a href="#" data-target="#myModal" ng-show="!isLoggedIn" data-toggle="modal" data-target="#meraModal">
+                <button type="button" class="btn btn-primary">CHECKOUT</button>
+            </a>
+            <div class="modal fade" id="meraModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header idetails">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3>ITEM DETAILS</h3>
+                            <div class="itembox">
+                                <table class="table table-bordered table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th class="tabcent">NAME</th>
+                                            <th class="tabcent">PRICE</th>
+                                            <th class="tabcent">QUANTITY</th>
+                                            <th class="tabcent">TOTAL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="menu in hotel.menu">
+                                            <td class="tabcent">{{menu.name}}</td>
+                                            <td class="tabcent">&#8377; {{menu.price}}</td>
+                                            <td class="tabcent">{{menu.qty}}</td>
+                                            <td class="tabcent">&#8377; {{menu.price * menu.qty }}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td class="tabbold">Total</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="tabbold">&#8377; {{total() }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tabbold">Delivery Charges</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="tabbold">&#8377; {{hotel.deliverCharge}}</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <h3 class="grand">GRAND TOTAL <span>is</span> &#8377; {{ grandtotal() }} </h3> </div>
+                        </div>
+                        <div class="modal-body idetails">
+
+                            <h3>DELIVERY ADDRESS</h3>
+                            <div class="deladdresspart">
+                                <ul class="deladdresslist">
+                                    <li ng-repeat="address in profile.addresses">
+                                        <div class="deladdlist">
+                                            <h3><input type="radio" 
+                                                name="name" required
+                                                ng-click="fnChangeAssetType(address)" > &nbsp; {{address.label}}</h3>
+                                        </div>
+                                        <div class="deladdlistt">
+                                            <ul class="deladddetails">
+                                                <li>
+                                                    <p><span>Address Line 1 :</span> {{address.addressLine1}}</p>
+                                                </li>
+                                                <li>
+                                                    <p><span>Address Line 2 :</span> {{address.addressLine2}}</p>
+                                                </li>
+                                                <!--
+                                                <li>
+                                                    <p><span>Street         :</span> {{address.street}}</p>
+                                                </li>
+-->
+                                                <li>
+                                                    <p><span>Landmark       :</span> {{address.Landmark}}</p>
+                                                </li>
+                                                <!--
+                                                <li>
+                                                    <p><span>Areaname       :</span> {{address.areaName}}</p>
+                                                </li>
+-->
+                                                <li>
+                                                    <p><span>City           :</span> {{address.city}}</p>
+                                                </li>
+                                                <li>
+                                                    <p><span>Zip            :</span> {{address.zip}}</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div> OR </div>
+                        <div class="modal-body idetails">
+                            <div>
+                                <!--                                <h3>DELIVERY ADDRESS</h3>-->
+                                <div class="form-group">
+                                    <ul class="mordlist">
+                                        <li>
+                                            <input type="text" class="form-control" id="user" ng-model="user" placeholder="Enter Name" required> </li>
+                                        <li>
+                                            <input type="text" class="form-control" id="inputphone" ng-model="phone" placeholder="Enter Phone Number" required> </li>
+                                        <li>
+                                            <input type="text" class="form-control" id="inputflat" ng-model="addressLine1" placeholder="Enter House/Flat No" required> </li>
+                                        <li>
+                                            <input type="text" class="form-control" id="inputflat" ng-model="addressLine2" placeholder="Enter Address" required> </li>
+<!--
+                                        <li>
+                                            <input type="text" class="form-control" name="inputareaName" ng-model="areaName" placeholder="Enter AreaName" ng-trim="false" required> </li>
+-->
+                                        <li>
+                                            <input type="text" class="form-control" id="inputlocality" ng-model="landmark" placeholder="Enter Landmark" required> </li>
+                                        <li>
+                                            <input type="text" class="form-control" id="inputlocality" ng-model="city" placeholder="Enter City" required> </li>
+                                        <li>
+                                            <input type="text" class="form-control" id="inputlocality" ng-model="zip" placeholder="Enter Zip" required> </li>
+                                        <!--
+                                        <li>
+                                                                        OR
+                                                                    </li>
+                                        <li>
+                                                                        <div class="checkbox">
+                                                                            <ul class="checklist">
+                                                                                <li ng-repeat="address in profile.addresses"><label><input type="checkbox" value="{{profile.address}}">Saved Address ( {{address.label}} )</label></li>
+                                                                                <li><label><input type="checkbox" value="{{profile.address}}">Saved Address ( {{address.label}} )</label></li>
+                                                                                <li><label><input type="checkbox" value="{{profile.address}}">Saved Address ( {{address.label}} )</label></li>
+                                                                            </ul>
+                                                                            
+                                                                        </div>
+                                                                    </li>
+-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="idetails">
+                            <h3><span>PAYMENT</span> is only <i>CASH ON DELIVERY.</i></h3> </div>
+                        <div class="modal-footer">
+                            <a href="">
+                                <button type="button" class="btn btn-danger" data-target="#myModal3" data-dismiss="modal" ng-click="order()" ng-disabled="myForm.$invalid || {{showModal ==false}}">ORDER</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="myModal3" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header confirmdetails">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3>ORDER SUMMARY</h3> </div>
+                        <div class="modal-body">
+                            <div class="itembox">
+                                <table class="table table-bordered table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th class="tabcent">NAME</th>
+                                            <th class="tabcent">PRICE</th>
+                                            <th class="tabcent">QUANTITY</th>
+                                            <th class="tabcent">TOTAL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="menu in hotel.menu">
+                                            <td class="tabcent">{{menu.name}}</td>
+                                            <td class="tabcent">&#8377; {{menu.price}}</td>
+                                            <td class="tabcent">{{menu.qty}}</td>
+                                            <td class="tabcent">&#8377; {{menu.price * menu.qty }}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td class="tabbold">Total</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="tabbold">&#8377; {{total() }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tabbold">Delivery Charges</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="tabbold">&#8377; {{hotel.deliverCharge}}</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <h3 class="grand">GRAND TOTAL <span>is</span> &#8377; {{ grandtotal() }} </h3> </div>
+                            <div class="confirmdetails">
+                                <h3>DELIVERY ADDRESS</h3>
+                                <p>Name : <i>{{user}}</i></p>
+                                <p>Phone : <i>{{phone}}</i></p>
+                                <p>Flat No : <i>{{addressLine1}}</i></p>
+                                <p>Street : <i>{{addressLine2}}</i></p>
+                                <!--                                <p>AreaName : <i>{{areaName}}</i></p>-->
+                                <p>LandMark : <i>{{landmark}}</i></p>
+                                <p>City : <i>{{city}}</i></p>
+                                <p>Zip : <i>{{zip}}</i></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" ng-disabled="myForm.user.$dirty && myForm.user.$invalid" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#myModal2" ng-click="confirmOrder()">CONFIRM ORDER</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="myModal2" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header idetails">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3>ORDER ID</h3> </div>
+                        <div class="modal-body" idetails ng-model="orderId">
+                            <h3>Your Order ID is <span>{{orderId}}</span></h3>
+                            <p>Note the Order ID to track the delivery Status.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="container">
+                            
+                          <div class="col-md-6 col-sm-6" >
+                          <div class="widget">
+                          <div class="widget-header">
+                                      <h3>Menu</h3>
+
+                                  </div>
+                                      <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Name</th>
+                                                <th>Price</th>
+                                                <th>Qty</th>
+                                                <th>Total</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr ng-repeat="menu in hotel.menu">
+                                                <td>{{menu.name}}</td>
+                                                <td>{{menu.price}}</td>
+                                                <td><input type="number"  ng-model="menu.qty" min="0" max="99"></td>
+                                                <td> ₹ {{menu.price * menu.qty }}</td>
+
+                                              </tr>
+                                              <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Total:</td>
+                                                <td> ₹ {{total() }}</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>  
+                                  </div>
+                              </div>
+                             <div class="col-md-6 col-sm-6">
+                              <div class="widget">
+                              <form name="myForm">
+                                  <div class="widget-header">
+                                      <h3>Delivery Address</h3>
+
+                                  </div>
+                                        <!--div>
+                                         <center> <img src= "/images/google_location.jpg" alt="button"  width="48" height="48" ng-click="getCurrentAddress()"></center>
+</div>
+                                          <div class="form-group" name="name">
+                                            <input type="text" class="form-control" id="user"  ng-model="user"  placeholder="Enter Name" required>
+                                          </div>
+                                          <div class="form-group">
+                                            <input type="number" class="form-control" id="inputphone" ng-model="phone" placeholder="Enter Phone Number" required>
+                                          </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="inputflat" ng-model="flat_no" placeholder="Enter House/Flat No" required>
+                                          </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="inputflat" ng-model="address" placeholder="Enter Address" required>
+                                          </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" name="inputareaName" ng-model="areaName" placeholder="Enter AreaName"  ng-trim="false" required>
+                                          </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="inputlocality" ng-model="landmark" placeholder="Enter Locality/Landmark" required>
+                                          </div>
+                                        </div>
+             
+                                        <div class="modal-footer" >
+                                          <button type="button" class="btn btn-primary"  ng-click="order()" ng-disabled= "myForm.$invalid || {{showModal ==false}}">Order</button>
+                                        </div>
+                                         </form>
+
+                            </div>
+-->
+    <!--
+                           <div id="myModal2" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              <h32 ><center>Your Order ID</center></h2>
+                                            </div>
+                                            <div  ng-model="orderId">
+                                                <h3><center>{{orderId}}</center></h3>
+                                            </div>
+
+                                      </div>
+                                  </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-sm-6">
+                                  <div id="myModal3" class="modal fade" role="dialog" >
+                                    <div class="modal-dialog" >
+
+                                      
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          <h4 ><center>Confirm Order</center></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Name</th>
+                                                <th>Qty</th>
+                                                 <th>Price</th>  
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr ng-repeat="menu in orderSummary.menu">
+                                                <td>{{menu.name}}</td>
+                                                <td>{{menu.no_of_order}}</td>
+                                              <td> ₹ {{menu.price}}</td>
+                                              </tr>
+                                             <tr>
+                                              <td></td>
+                                                <td>Total:</td>
+                                                <td> ₹ {{total_price}}</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>  
+                                           <h4 class="modal-title"><center>Delivery Address</center></h4>
+
+                                          <div class="form-group">
+                                          <label for="name">Name</label>
+                                          <p>Name: {{user}}</p>
+                                          <label for="phone">Phone Number</label>
+                                          <p>{{phone}}</p>
+                                          <label for="address">Address</label>
+                                          <p>FlatNo:{{flat_no}}</p>
+                                          <p>Address:{{address}}</p>
+                                           <p>AreaName:{{areaName}}</p>
+                                           <p>LandMark: {{landmark}}</p>
+                                          </div>
+
+                                        </div>
+
+
+                                        <div class="modal-footer" >
+                                          <button type="button" ng-disabled="myForm.user.$dirty && myForm.user.$invalid" class="btn btn-default" data-dismiss="modal" 
+                                           data-toggle="modal"
+                                          data-target="#myModal2"
+                                          ng-click="confirmOrder()">Order</button>
+
+                                        </div>
+     
+
+
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                  </div>
+-->
