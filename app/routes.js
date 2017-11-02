@@ -1,5 +1,5 @@
 
-var VendorInfoModel = require('../app/models/Candidateinfo');
+var VendorInfoModel = require('../app/models/CandidateInfo');
 var CountersModel = require('../app/models/counters');
 var AWS = require('aws-sdk');
 var Firebase = require("firebase");
