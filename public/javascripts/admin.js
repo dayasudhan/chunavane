@@ -146,6 +146,8 @@ app = angular.module("adminModule", []);
      if($scope.files)
      {
       fd.append("file",  $scope.files[0]);
+      fd.append("file",  $scope.files[1]);
+      console.log($scope.files);
         }
      else
      {

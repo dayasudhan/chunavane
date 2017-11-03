@@ -169,7 +169,7 @@
                            <div class="form-group">
                               >
                               <div class="col-xs-10">
-                                 <input type="file" name="file" id="logoinputfile" onchange="angular.element(this).scope().addLogo('<%= user.local.email %>',this.files)">
+                                 <input type="file" name="file" id="logoinputfile" onchange="angular.element(this).scope().addLogo('<%= user.local.email %>',this.files)" multiple>
                               </div>
                            </div>
                            <!--div class="box-footer">

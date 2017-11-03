@@ -9,7 +9,7 @@ var multerS3 = require('multer-s3');
 var path = require('path');
 var Client = require('node-rest-client').Client;
 var client = new Client();
-
+//AWS.config.loadFromPath('./config.json');
 var s3 = new AWS.S3();
 
 //var upload = multer({ storage: options });
@@ -338,17 +338,19 @@ function registerVendor(req, res, next) {
    
 // });
 
-app.post( '/v1/comment/info/:id',upload.single('file'), function( req, res ) {
+app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
     console.log("commentInfo post");
     console.log(req.body);
     console.log(req.params.id);
-    console.log(req.files);
-    console.log(req.file);
+    console.log('files->',req.files);
+    console.log('file->',req.file);
     var url2 = null;
-    if(req.file)
-    {
-      console.log(req.file.path);
-      url2= req.file.location;
+    console.log('Successfully uploaded ' + req.files.length + ' files!');
+    var url2 = [];
+    for (var i = 0; i < req.files.length; i++) {
+    
+      console.log(req.files[i].location);
+      url2.push( req.files[i].location);
     }
     console.log(url2);
     var receivedData =  JSON.parse(req.body.data);
