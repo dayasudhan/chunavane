@@ -16,7 +16,7 @@ var s3 = new AWS.S3();
 var upload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: 'madhuve',
+        bucket: 'chunavane',
         acl: 'public-read',
         key: function (req, file, cb) {
             console.log(file);
@@ -171,7 +171,7 @@ app.get('/vendor', function (req, res) {
     res.render('vendor_login', { user : req.user });
 });
 app.get('/', function (req, res) {
-    res.render('customer', { user : req.user });
+     res.render('customer_login.ejs', { message: req.flash('loginMessage') });
 });
 
 
