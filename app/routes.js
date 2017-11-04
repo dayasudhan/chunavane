@@ -386,7 +386,7 @@ app.get( '/v1/feed/info/:id', function( request, response ) {
               var menu_array ;
               menu_array = vendor[j].newsfeed;
               
-              for (var i = 0; i < menu_array.length; i++) {
+              for (var i = menu_array.length - 1 ; i >= 0; i--) {
 
                       new_menu_array.push(menu_array[i]);
 
@@ -415,7 +415,7 @@ app.get( '/v1/feed/info/:id/:index', function( request, response ) {
               var menu_array ;
               menu_array = vendor[0].newsfeed;
               
-              for (var i = 0; i < menu_array.length; i++) {
+              for (var i = menu_array.length - 1 ; i >= 0; i--) {
 
                       new_menu_array.push(menu_array[i]);
               }
