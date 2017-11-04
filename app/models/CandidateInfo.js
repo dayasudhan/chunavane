@@ -13,7 +13,8 @@ var CandidateInfoSchema = new mongoose.Schema({
     newsfeed:[{heading:String,
                description:String,
                feedvideos:String,
-               feedimages:[String]}]
+               feedimages:[{url:String}]
+             }]
 
     });
 

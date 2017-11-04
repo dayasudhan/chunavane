@@ -344,13 +344,15 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
     console.log(req.params.id);
     console.log('files->',req.files);
     console.log('file->',req.file);
-    var url2 = null;
+    
     console.log('Successfully uploaded ' + req.files.length + ' files!');
     var url2 = [];
     for (var i = 0; i < req.files.length; i++) {
     
       console.log(req.files[i].location);
-      url2.push( req.files[i].location);
+      var elem = {url:req.files[i].location};
+     // var elem[url]  =  req.files[i].location;
+      url2.push( elem);
     }
     console.log(url2);
     var receivedData =  JSON.parse(req.body.data);
