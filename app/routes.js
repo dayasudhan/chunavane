@@ -2,13 +2,14 @@
 var VendorInfoModel = require('../app/models/CandidateInfo');
 var CountersModel = require('../app/models/counters');
 var AWS = require('aws-sdk');
-var Firebase = require("firebase");
-var firebase = require("firebase");
+// var Firebase = require("firebase");
+// var firebase = require("firebase");
 var multer = require('multer');
 var multerS3 = require('multer-s3');
 var path = require('path');
 var Client = require('node-rest-client').Client;
 var client = new Client();
+var admin = require("firebase-admin");
 //AWS.config.loadFromPath('./config.json');
 var s3 = new AWS.S3();
 
@@ -48,14 +49,28 @@ var upload = multer({
 //     storageBucket: "election-b8219.appspot.com",
 //     messagingSenderId: "484070807157"
 //   };
-  var config = {
-  apiKey: "AIzaSyDPveny7Zzop7u4eW4zZefIyxwYJCgH8ro",
-  authDomain: "election-b8219.firebaseapp.com",
-  databaseURL: "https://election-b8219.firebaseio.com",
-  storageBucket: "election-b8219.appspot.com",
-  projectId: "election-b8219"
-};
-firebase.initializeApp(config);
+//   var config = {
+//   apiKey: "AIzaSyDPveny7Zzop7u4eW4zZefIyxwYJCgH8ro",
+//   authDomain: "election-b8219.firebaseapp.com",
+//   databaseURL: "https://election-b8219.firebaseio.com",
+//   storageBucket: "election-b8219.appspot.com",
+//   projectId: "election-b8219"
+// };
+// var config2 = {
+//     apiKey: "AIzaSyDPveny7Zzop7u4eW4zZefIyxwYJCgH8ro",
+//     authDomain: "election-b8219.firebaseapp.com",
+//     databaseURL: "https://election-b8219.firebaseio.com",
+//     projectId: "election-b8219",
+//     storageBucket: "election-b8219.appspot.com",
+//     messagingSenderId: "484070807157"
+//   };
+//firebase.initializeApp(config);
+var serviceAccount = require('../election-b8219-firebase-adminsdk-0t0lc-485d2e37ad.json');
+//admin.initializeApp(config2);
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://election-b8219.firebaseio.com"
+})
 //     "project_number":"484070807157",
 //     "firebase_url":"https://election-b8219.firebaseio.com",
 //     "project_id":"election-b8219",
@@ -63,7 +78,8 @@ firebase.initializeApp(config);
 
 
 
-var rootRef = firebase.database().ref();
+//var rootRef = firebase.database().ref();
+//var messagingref = firebase.messaging().ref();
 
 
 module.exports = function(app, passport) {
@@ -363,6 +379,27 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
       feedimages: url2}] }}},
        function( err, order ) {
        if( !err ) {
+
+
+              var topic = "news";
+              var payload = {
+                 notification: {
+                  title: receivedData.heading,
+                  icon: "your_icon_name",
+                  body: receivedData.description,
+              }
+                };  
+            admin.messaging().sendToTopic(topic, payload)
+            .then(function(response2) {
+              // See the MessagingTopicResponse reference documentation for the
+              // contents of response.
+              console.log("Successfully sent message:", response2);
+             // response.send(response2);
+            })
+            .catch(function(error) {
+              console.log("Error sending message:", error);
+            });
+
            console.log("no error");
            console.log(order);
            return res.send('Success');
@@ -402,7 +439,36 @@ app.get( '/v1/feed/info/:id', function( request, response ) {
 });
 
 
-app.get( '/v1/feed/info/:id/:index', function( request, response ) {
+// app.get( '/v1/feed/info/:id/:index', function( request, response ) {
+//     console.log("GET --/v1/vendor/info/");
+
+//     return VendorInfoModel.find({ 'username':request.params.id},
+//       function( err, vendor ) {
+//         if( !err ) {
+//             console.log(vendor);
+//             var new_menu_array = [];
+//             var return_obj = {};
+         
+//               var menu_array ;
+//               menu_array = vendor[0].newsfeed;
+              
+//               for (var i = menu_array.length - 1 ; i >= 0; i--) {
+
+//                       new_menu_array.push(menu_array[i]);
+//               }
+             
+       
+//             return_obj["feeds"] = new_menu_array;
+//             return_obj["length"] =menu_array.length;
+//             return response.send( return_obj );
+//         } else {
+//             console.log( err );
+//             return response.send('ERROR');
+//         }
+//     });
+// });
+
+app.get( '/v1/feed/images/:id', function( request, response ) {
     console.log("GET --/v1/vendor/info/");
 
     return VendorInfoModel.find({ 'username':request.params.id},
@@ -410,26 +476,30 @@ app.get( '/v1/feed/info/:id/:index', function( request, response ) {
         if( !err ) {
             console.log(vendor);
             var new_menu_array = [];
-            var return_obj = {};
-         
+            var new_feed_images_array = [];
+            for (var j = 0; j < vendor.length; j++) {
               var menu_array ;
-              menu_array = vendor[0].newsfeed;
+              menu_array = vendor[j].newsfeed;
               
               for (var i = menu_array.length - 1 ; i >= 0; i--) {
 
                       new_menu_array.push(menu_array[i]);
-              }
+                      var feed_images = menu_array[i].feedimages;
+                      for (var k = feed_images.length - 1 ; k >= 0; k--) {
+                            new_feed_images_array.push(feed_images[k]);
+                        }
+                     }
              
-       
-            return_obj["feeds"] = new_menu_array;
-            return_obj["length"] =menu_array.length;
-            return response.send( return_obj );
+            }
+            return response.send( new_feed_images_array );
         } else {
             console.log( err );
             return response.send('ERROR');
         }
     });
 });
+
+
 app.get( '/v1/admin/account/all', function( request, response ) {
 
     return VendorInfoModel.find(function( err, order ) {
@@ -592,86 +662,111 @@ app.post( '/v1/pn/register', function( request, response ) {
         }
 
 });
-app.post( '/v1/pn/vendor/addTofirebase', function( request, response ) {
-    console.log("post v1/pn/vendor/addTofirebase");
-    console.log(request.body);
+// app.post( '/v1/pn/vendor/addTofirebase', function( request, response ) {
+//     console.log("post v1/pn/vendor/addTofirebase");
+//     console.log(request.body);
  
-    if( request.body.message ) {
-            console.log('success');
-            var pn = {};
-            pn[request.body.key]  = {
-                info:request.body.message
-            };
-            console.log(pn); // should print  Object { name="John"}
-              rootRef.update(
-               pn
-             );
+//     if( request.body.message ) {
+//             console.log('success');
+//             var pn = {};
+//             pn[request.body.key]  = {
+//                 info:request.body.message
+//             };
+//             console.log(pn); // should print  Object { name="John"}
+//               rootRef.update(
+//                pn
+//              );
 
-            return response.send('success');
-        }
-        else if(request.body.update)
-          {
-            console.log('success');
-            var pn = {};
-            pn[request.body.key]  = {
-                update2:request.body.update
-            };
-            console.log(pn); // should print  Object { name="John"}
-              rootRef.update(
-               pn
-             );
-           // rootRef.child(request.body.key).set({ first: 'Fred', last: 'Flintstone' });
-            // var newdata = {'newoffer':request.body.message};
-            //  rootRef.push(newdata);
+//             return response.send('success');
+//         }
+//         else if(request.body.update)
+//           {
+//             console.log('success');
+//             var pn = {};
+//             pn[request.body.key]  = {
+//                 update2:request.body.update
+//             };
+//             console.log(pn); // should print  Object { name="John"}
+//               rootRef.update(
+//                pn
+//              );
+//            // rootRef.child(request.body.key).set({ first: 'Fred', last: 'Flintstone' });
+//             // var newdata = {'newoffer':request.body.message};
+//             //  rootRef.push(newdata);
            
-            return response.send('success');
-        }
-         else {
-            console.log( 'failure' );
-            return response.send('failure');
-        }
+//             return response.send('success');
+//         }
+//          else {
+//             console.log( 'failure' );
+//             return response.send('failure');
+//         }
 
-});
-app.post( '/v1/pn/customer/addTofirebase', function( request, response ) {
-    console.log("post v1/pn/customer/addTofirebase");
-    console.log(request.body);
+// });
+app.get( '/v1/pn/customer/fcm/:id', function( request, response ) {
+      console.log("post v1/pn/customer/addTofirebase");
+     
+      var topic = "news";
+
+// See the "Defining the message payload" section below for details
+// on how to define a message payload.
+      var payload = {
+       notification: {
+        title: "Hello World2! ",
+        icon: "your_icon_name",
+        body: "Here is a not2222ification's body.",
+    }
+      };  
+      admin.messaging().sendToTopic(topic, payload)
+      .then(function(response2) {
+        // See the MessagingTopicResponse reference documentation for the
+        // contents of response.
+        console.log("Successfully sent message:", response2);
+        response.send(response2);
+      })
+      .catch(function(error) {
+        console.log("Error sending message:", error);
+      });
+    });
+// app.post( '/v1/pn/customer/addTofirebase', function( request, response ) {
+//     console.log("post v1/pn/customer/addTofirebase");
+//     console.log(request.body);
  
-    if( request.body.message ) {
-            console.log('success');
-            var pn = {};
-            pn['customer']  = {
-                info:request.body.message
-            };
-            console.log(pn); // should print  Object { name="John"}
-              rootRef.update(
-               pn
-             );
+//     if( request.body.message ) {
+//             console.log('success');
+//             var pn = {};
+//             pn['customer']  = {
+//                 info:request.body.message
+//             };
+//             console.log(pn); // should print  Object { name="John"}
+//               rootRef.update(
+//                pn
+//              );
 
-            return response.send('success');
-        }
-        else if(request.body.update)
-          {
-            console.log('success');
-            var pn = {};
-            pn['customer']  = {
-                update:request.body.update
-            };
-            console.log(pn); // should print  Object { name="John"}
-              rootRef.update(
-               pn
-             );
-           // rootRef.child(request.body.key).set({ first: 'Fred', last: 'Flintstone' });
-            // var newdata = {'newoffer':request.body.message};
-            //  rootRef.push(newdata);
+//             return response.send('success');
+//         }
+//         else if(request.body.update)
+//           {
+//             console.log('success');
+//             var pn = {};
+//             pn['customer']  = {
+//                 update:request.body.update
+//             };
+//             console.log(pn); // should print  Object { name="John"}
+//               rootRef.update(
+//                pn
+//              );
+//            // rootRef.child(request.body.key).set({ first: 'Fred', last: 'Flintstone' });
+//             // var newdata = {'newoffer':request.body.message};
+//             //  rootRef.push(newdata);
            
-            return response.send('success');
-        }
-         else {
-            console.log( 'failure' );
-            return response.send('failure');
-        }
+//             return response.send('success');
+//         }
+//          else {
+//             console.log( 'failure' );
+//             return response.send('failure');
+//         }
 
-});
+// });
 app.delete( '/v1/admin/counters/:id', function( request, response ) {
         return CountersModel.remove( { '_id':request.params.id},function( err ) {
             if( !err ) {

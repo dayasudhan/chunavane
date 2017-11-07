@@ -22,6 +22,7 @@
     "multer": "1.1.0",
     "multer-s3":"*",
     "aws-sdk": "*",
+    "firebase-admin":"*",
     "s3-upload-stream":"*"
   }
 }

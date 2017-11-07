@@ -154,7 +154,8 @@
                               <div class="form-group">
                                  <label for="inputEmail3"  class="col-sm-2 control-label">Comment Description</label>
                                  <div class="col-sm-10">
-                                    <input type="text" class="form-control"  name="Name"  placeholder={{comments}} ng-model = "description" required>
+                                 
+                                    <textarea name="textarea"  class="form-control" ng-model = "description" style="height:150px;"></textarea>
                                  </div>
                               </div>
                                                 <div class="col-xs-8">
@@ -169,7 +170,12 @@
                            <div class="form-group">
                               >
                               <div class="col-xs-10">
-                                 <input type="file" name="file" id="logoinputfile" onchange="angular.element(this).scope().addLogo('<%= user.local.email %>',this.files)" multiple>
+                                 <input type="file" name="file" id="logoinputfile" 
+                                 resize-max-height="300"
+                                        resize-max-width="250"
+                                        resize-quality="0.7"
+                                        onchange="angular.element(this).scope().addLogo('<%= user.local.email %>',this.files)" multiple>
+                                
                               </div>
                            </div>
                            <!--div class="box-footer">
