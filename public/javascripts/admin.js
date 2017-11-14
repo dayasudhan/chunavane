@@ -184,6 +184,7 @@ app = angular.module("adminModule", []);
       var postData={
         heading:$scope.heading,
         description:$scope.description,
+        feedvideo:$scope.feedvideo
       };
      if($scope.files)
      {
