@@ -371,7 +371,7 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
       url2.push( elem);
     }
     console.log(url2);
-    var youtube_id = "";
+   // var youtube_id = "";
     var receivedData =  JSON.parse(req.body.data);
     // if(receivedData.feedvideo != null && receivedData.feedvideo.length > 0 )
     // {
@@ -384,7 +384,7 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
      { $addToSet: {newsfeed: {$each:[{
       heading: receivedData.heading,
       description: receivedData.description,
-      feedvideo:receivedData.feedvideo,
+     // feedvideo:receivedData.feedvideo,
       feedimages: url2}] }}},
        function( err, order ) {
        if( !err ) {
