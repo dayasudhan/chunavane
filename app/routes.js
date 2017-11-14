@@ -356,12 +356,12 @@ function registerVendor(req, res, next) {
 
 app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
     console.log("commentInfo post");
-    // console.log(req.body);
-    // console.log(req.params.id);
-    // console.log('files->',req.files);
-    // console.log('file->',req.file);
+    console.log(req.body);
+    console.log(req.params.id);
+    console.log('files->',req.files);
+    console.log('file->',req.file);
     
-    // console.log('Successfully uploaded ' + req.files.length + ' files!');
+    console.log('Successfully uploaded ' + req.files.length + ' files!');
     var url2 = [];
     for (var i = 0; i < req.files.length; i++) {
     
@@ -373,18 +373,18 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
     console.log(url2);
     var youtube_id = "";
     var receivedData =  JSON.parse(req.body.data);
-    if(receivedData.feedvideo != null && receivedData.feedvideo.length > 0 )
-    {
-      var nu = receivedData.feedvideo.indexOf("=");
-      youtube_id = receivedData.feedvideo.substring(nu+1);
+    // if(receivedData.feedvideo != null && receivedData.feedvideo.length > 0 )
+    // {
+    //   var nu = receivedData.feedvideo.indexOf("=");
+    //   youtube_id = receivedData.feedvideo.substring(nu+1);
 
-    }
+    // }
     console.log(youtube_id);
      return VendorInfoModel.update({ 'username':req.params.id},
      { $addToSet: {newsfeed: {$each:[{
       heading: receivedData.heading,
       description: receivedData.description,
-      feedvideo:youtube_id,
+      feedvideo:receivedData.feedvideo,
       feedimages: url2}] }}},
        function( err, order ) {
        if( !err ) {
