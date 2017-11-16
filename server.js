@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 // configuration ===============================================================
 //mongoose.connect(configDB.url); // connect to our database
 var uristring = 
-  process.env.MONGODB_URI ||
+  process.env.MONGODB_URI||
   process.env.MONGOLAB_URI ||
   'mongodb://localhost/election';
 
