@@ -371,11 +371,20 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
       url2.push( elem);
     }
     console.log(url2);
+    var youtubeid = "";
     var receivedData =  JSON.parse(req.body.data);
-     return VendorInfoModel.update({ 'username':req.params.id},
+
+    if(receivedData.feedvideo != null && receivedData.feedvideo.length > 0 )
+    {
+       var nu = receivedData.feedvideo.indexOf("=");
+       youtubeid = receivedData.feedvideo.substring(nu+1);
+    }
+    console.log(youtubeid);
+    return VendorInfoModel.update({ 'username':req.params.id},
      { $addToSet: {newsfeed: {$each:[{
       heading: receivedData.heading,
       description: receivedData.description,
+      feedvideo:youtubeid,
       feedimages: url2}] }}},
        function( err, order ) {
        if( !err ) {
