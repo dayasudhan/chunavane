@@ -422,29 +422,29 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
 
 app.get( '/v1/feed/info/:id', function( request, response ) {
     console.log("GET --/v1/vendor/info/");
-return response.send('Hage Summane');;
-    // return VendorInfoModel.find({ 'username':request.params.id},
-    //   function( err, vendor ) {
-    //     if( !err ) {
-    //         console.log(vendor);
-    //         var new_menu_array = [];
-    //         for (var j = 0; j < vendor.length; j++) {
-    //           var menu_array ;
-    //           menu_array = vendor[j].newsfeed;
+
+    return VendorInfoModel.find({ 'username':request.params.id},
+      function( err, vendor ) {
+        if( !err ) {
+            console.log(vendor);
+            var new_menu_array = [];
+            for (var j = 0; j < vendor.length; j++) {
+              var menu_array ;
+              menu_array = vendor[j].newsfeed;
               
-    //           for (var i = menu_array.length - 1 ; i >= 0; i--) {
+              for (var i = menu_array.length - 1 ; i >= 0; i--) {
 
-    //                   new_menu_array.push(menu_array[i]);
+                      new_menu_array.push(menu_array[i]);
 
-    //           }
+              }
              
-    //         }
-    //         return response.send( new_menu_array );
-    //     } else {
-    //         console.log( err );
-    //         return response.send('ERROR');
-    //     }
-    // });
+            }
+            return response.send( new_menu_array );
+        } else {
+            console.log( err );
+            return response.send('ERROR');
+        }
+    });
 });
 
 
@@ -611,7 +611,17 @@ app.get( '/v1/admin/account/all', function( request, response ) {
     });
 });
 
+app.get( '/v1/admin/counters/all', function( request, response ) {
 
+    return CountersModel.find(function( err, order ) {
+        if( !err ) {
+            return response.send( order );
+        } else {
+            console.log( err );
+            return response.send('ERROR');
+        }
+    });
+});
 
 app.post( '/v1/admin/counters/:id', function( request, response ) {
     console.log("post /v1/admin/counters");
