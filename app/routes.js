@@ -2,8 +2,6 @@
 var VendorInfoModel = require('../app/models/CandidateInfo');
 var CountersModel = require('../app/models/counters');
 var AWS = require('aws-sdk');
-// var Firebase = require("firebase");
-// var firebase = require("firebase");
 var multer = require('multer');
 var multerS3 = require('multer-s3');
 var path = require('path');
@@ -26,62 +24,12 @@ var upload = multer({
     })
 });
 
-// Firebase.initializeApp({
-//   serviceAccount: {
-//   "type": "service_account",
-//   "project_id": "election-b8219",
-//   "private_key_id": "82abba7994a0894b4b38ee0c66d05cf80dd99efc",
-//   "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCGKNGc8VwvoTrX\njusnjmbMAmjTjBJ/2Tu/gzktQxfoY0mIe31NUufw0mnBQYOJakU1FORvw8USn3QM\nNCu8h1UvfhvkUVI/FjAdEcuBh+PFOULqFWYlalK3560qvGlE6xHnftgLQC/LI9R4\nmO0moRLBrQ2Oq2JVUwIE58xiXgw5WyMxnZ4IS1kons5UmutUw3QtRMfvwLHrkV/z\na8oP6XPXeECp7FWrvtF53PYFLRurL1bFQsSNwHFw8su8BhEhjpXXD1SDKyEpnz4E\nr8P2wTS1116mrVkNXWyY0rV7fyBvqeh/oH0AZVOzDCueFkT3Q2eZJcGUnGp9uTCb\nExXNIws/AgMBAAECggEAST2LgYR6cT4x43AQjJ2/HOzL0YGMr+MmLR00X7NbH/Dk\nOfBAra/vE5erSGe9qY0sjxgCxck4kzwdnHP21IuFQ9Iy4+hJYEt6pMQMN4C6Jfdm\nwmhARXjQA7ok3UnSpl82fQzQYQP/k4TR/6xs+0O/+5+/4P1LR41zcr4g5Cq3va9l\n4W37dOgaYCUSprWXFQtD5kztcOYNeyuPGg7IYIL/xBo8mqaH49wAf1SureSJauKK\ndEc8hq4FuR9VAWlISV4GBZ4w6DL+N2KrOFbwBiqbt6IASoh7p6k2H+beExmKCpeG\nUDORBsuMRNsYFvQDmS8q6XwYjX4TVh/Agp7jv+DaEQKBgQDorbsL+f+/GZQQ1+ds\nSMQdhvOLXpO8Oh7eAjTTY3K/UNTKCkEoTkam51Bv4O4b/qIXKbcqRyTfqbW9e/mb\nuY0SK/+2N0XTo3X71jJDRKE+Zls1j2/slaDeiUzRxXIF+J0SIgEV5hPbEGNYdGuK\niDP0Mr82GQ998kyKcMBIqG8yZQKBgQCTmzKhmt7GmwCWnxZlvc1yB1nII2r+L1CT\nVQudMgNyWLAF3XtVXC6mntGhEdzcygvB/AOwusMI60duCgZK/+x0JNdyLKvFkmeT\nh4djfppGSjwtzzW1geBgJQnyWdoBv/q6Z68Ms3NSexTODbfC2qfBpR27oECZr4Hz\n7P45S+Fa0wKBgDfBKYj9JuNL5ccDdVjlNtk8dS94Qj5gTvUz4iSlN+HQJK0lN+fI\nmfV0iDnG1EexBHY4cMOYuKU/rWTySCWgmMU59dRb+kd0a9kkwnaMA3dIX6K99Dvk\nvt+UVuwNO/1iTYEC1O/Cag+cJbIUc5CGgqyJXHhCGQw8+0pRKkI+2iZhAoGAD5Qw\nyteyrZmMfVk7Hu/icCeQdUwvrbZGtdYjDKtLq9TqdyQCMWcyUUmv7GUbP35fsVCs\n/wknLpjOiDGsqlvKlBOTXayTUJ38KpkCVCD3nXWWVmtpSsfza5JdM2QCW27swqHQ\n2vFRuaHd90WBYKJ9VDXeJoBqcQ4SFDGuP1Pf7BsCgYEA0bVl9WMaIAe8V6AtwYjz\nLx1KRQ3mZWwXdEBitciQhnDeutMgaExkwCJHag6VGfOljNe/JtgCEzqWWh0rvFzi\nUn2WZA/kcqByHIQzVqJwhFkVjRzS5/qVrTvZw0xu2HVQD4iV6OHRMS3TeIUbGqOK\ngFYR4uhQAX6sXvXp4uU16bs=\n-----END PRIVATE KEY-----\n",
-//   "client_email": "khaanavali@project-8598805513533999178.iam.gserviceaccount.com",
-//   "client_id": "110281937967415310229",
-//   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-//   "token_uri": "https://accounts.google.com/o/oauth2/token",
-//   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-//   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/khaanavali%40project-8598805513533999178.iam.gserviceaccount.com"
-// },
-//   databaseURL: "https://project-8598805513533999178.firebaseio.com"
-// });
-// var config = {
-//     apiKey: "AIzaSyDPveny7Zzop7u4eW4zZefIyxwYJCgH8ro",
-//     authDomain: "election-b8219.firebaseapp.com",
-//     databaseURL: "https://election-b8219.firebaseio.com",
-//     projectId: "election-b8219",
-//     storageBucket: "election-b8219.appspot.com",
-//     messagingSenderId: "484070807157"
-//   };
-//   var config = {
-//   apiKey: "AIzaSyDPveny7Zzop7u4eW4zZefIyxwYJCgH8ro",
-//   authDomain: "election-b8219.firebaseapp.com",
-//   databaseURL: "https://election-b8219.firebaseio.com",
-//   storageBucket: "election-b8219.appspot.com",
-//   projectId: "election-b8219"
-// };
-// var config2 = {
-//     apiKey: "AIzaSyDPveny7Zzop7u4eW4zZefIyxwYJCgH8ro",
-//     authDomain: "election-b8219.firebaseapp.com",
-//     databaseURL: "https://election-b8219.firebaseio.com",
-//     projectId: "election-b8219",
-//     storageBucket: "election-b8219.appspot.com",
-//     messagingSenderId: "484070807157"
-//   };
-//firebase.initializeApp(config);
+
 var serviceAccount = require('../election-b8219-firebase-adminsdk-0t0lc-485d2e37ad.json');
-//admin.initializeApp(config2);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://election-b8219.firebaseio.com"
 })
-//     "project_number":"484070807157",
-//     "firebase_url":"https://election-b8219.firebaseio.com",
-//     "project_id":"election-b8219",
-//     "storage_bucket":"election-b8219.appspot.com"
-
-
-
-//var rootRef = firebase.database().ref();
-//var messagingref = firebase.messaging().ref();
-
-
 module.exports = function(app, passport) {
 
 
@@ -448,35 +396,6 @@ app.get( '/v1/feed/info/:id', function( request, response ) {
 });
 
 
-// app.get( '/v1/feed/info/:id/:index', function( request, response ) {
-//     console.log("GET --/v1/vendor/info/");
-
-//     return VendorInfoModel.find({ 'username':request.params.id},
-//       function( err, vendor ) {
-//         if( !err ) {
-//             console.log(vendor);
-//             var new_menu_array = [];
-//             var return_obj = {};
-         
-//               var menu_array ;
-//               menu_array = vendor[0].newsfeed;
-              
-//               for (var i = menu_array.length - 1 ; i >= 0; i--) {
-
-//                       new_menu_array.push(menu_array[i]);
-//               }
-             
-       
-//             return_obj["feeds"] = new_menu_array;
-//             return_obj["length"] =menu_array.length;
-//             return response.send( return_obj );
-//         } else {
-//             console.log( err );
-//             return response.send('ERROR');
-//         }
-//     });
-// });
-
 app.get( '/v1/feed/images/:id', function( request, response ) {
     console.log("GET --/v1/vendor/info/");
 
@@ -681,46 +600,6 @@ app.post( '/v1/pn/register', function( request, response ) {
         }
 
 });
-// app.post( '/v1/pn/vendor/addTofirebase', function( request, response ) {
-//     console.log("post v1/pn/vendor/addTofirebase");
-//     console.log(request.body);
- 
-//     if( request.body.message ) {
-//             console.log('success');
-//             var pn = {};
-//             pn[request.body.key]  = {
-//                 info:request.body.message
-//             };
-//             console.log(pn); // should print  Object { name="John"}
-//               rootRef.update(
-//                pn
-//              );
-
-//             return response.send('success');
-//         }
-//         else if(request.body.update)
-//           {
-//             console.log('success');
-//             var pn = {};
-//             pn[request.body.key]  = {
-//                 update2:request.body.update
-//             };
-//             console.log(pn); // should print  Object { name="John"}
-//               rootRef.update(
-//                pn
-//              );
-//            // rootRef.child(request.body.key).set({ first: 'Fred', last: 'Flintstone' });
-//             // var newdata = {'newoffer':request.body.message};
-//             //  rootRef.push(newdata);
-           
-//             return response.send('success');
-//         }
-//          else {
-//             console.log( 'failure' );
-//             return response.send('failure');
-//         }
-
-// });
 app.get( '/v1/pn/customer/fcm/:id', function( request, response ) {
       console.log("post v1/pn/customer/addTofirebase");
      
@@ -746,46 +625,7 @@ app.get( '/v1/pn/customer/fcm/:id', function( request, response ) {
         console.log("Error sending message:", error);
       });
     });
-// app.post( '/v1/pn/customer/addTofirebase', function( request, response ) {
-//     console.log("post v1/pn/customer/addTofirebase");
-//     console.log(request.body);
- 
-//     if( request.body.message ) {
-//             console.log('success');
-//             var pn = {};
-//             pn['customer']  = {
-//                 info:request.body.message
-//             };
-//             console.log(pn); // should print  Object { name="John"}
-//               rootRef.update(
-//                pn
-//              );
 
-//             return response.send('success');
-//         }
-//         else if(request.body.update)
-//           {
-//             console.log('success');
-//             var pn = {};
-//             pn['customer']  = {
-//                 update:request.body.update
-//             };
-//             console.log(pn); // should print  Object { name="John"}
-//               rootRef.update(
-//                pn
-//              );
-//            // rootRef.child(request.body.key).set({ first: 'Fred', last: 'Flintstone' });
-//             // var newdata = {'newoffer':request.body.message};
-//             //  rootRef.push(newdata);
-           
-//             return response.send('success');
-//         }
-//          else {
-//             console.log( 'failure' );
-//             return response.send('failure');
-//         }
-
-// });
 app.delete( '/v1/admin/counters/:id', function( request, response ) {
         return CountersModel.remove( { '_id':request.params.id},function( err ) {
             if( !err ) {
