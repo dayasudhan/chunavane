@@ -282,25 +282,6 @@ function registerVendor(req, res, next) {
     });
 };
 
-// app.post( '/v1/comment/info/:id', function( req, res ) {
-//     console.log("commentInfo post");
-//     console.log(req.body);
-//     console.log(req.params.id);
-//     var receivedData =  JSON.parse(req.body.data);
-//      return VendorInfoModel.update({ 'username':req.params.id},
-//      { $addToSet: {newsfeed: {$each:[{heading: req.body.heading,description: req.body.description,feedimages: req.body.imageurl}] }}},
-//        function( err, order ) {
-//        if( !err ) {
-//            console.log("no error");
-//            console.log(order);
-//            return res.send('Success');
-//        } else {
-//            console.log( err );
-//            return res.send('ERROR');
-//        }
-//    });
-   
-// });
 
 app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
     console.log("commentInfo post");
@@ -395,7 +376,6 @@ app.get( '/v1/feed/info/:id', function( request, response ) {
     });
 });
 
-
 app.get( '/v1/feed/images/:id', function( request, response ) {
     console.log("GET --/v1/vendor/info/");
 
@@ -413,9 +393,12 @@ app.get( '/v1/feed/images/:id', function( request, response ) {
 
                       new_menu_array.push(menu_array[i]);
                       var feed_images = menu_array[i].feedimages;
+                      if(feed_images != null)
+                      {
                       for (var k = feed_images.length - 1 ; k >= 0; k--) {
                             new_feed_images_array.push(feed_images[k]);
                         }
+                      }
                      }
              
             }
@@ -427,7 +410,37 @@ app.get( '/v1/feed/images/:id', function( request, response ) {
     });
 });
 
+app.get( '/v1/feed/videos/:id', function( request, response ) {
+    console.log("GET --/v1/vendor/info/");
 
+    return VendorInfoModel.find({ 'username':request.params.id},
+      function( err, vendor ) {
+        if( !err ) {
+            console.log(vendor);
+           
+            var new_feed_images_array = [];
+            for (var j = 0; j < vendor.length; j++) {
+              var menu_array ;
+              menu_array = vendor[j].newsfeed;
+              
+              for (var i = menu_array.length - 1 ; i >= 0; i--) {
+
+                    
+                      var feed_images = menu_array[i].feedvideo;
+                      if (feed_images != null && feed_images != "") {
+                            new_feed_images_array.push(menu_array[i]);
+                        }
+                     }
+             
+            }
+            return response.send( new_feed_images_array );
+        } else {
+            console.log( err );
+            return response.send('ERROR');
+        }
+    });
+});
+ 
 app.get( '/v1/admin/account/all', function( request, response ) {
 
     return VendorInfoModel.find(function( err, order ) {
