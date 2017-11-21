@@ -8,6 +8,8 @@ var path = require('path');
 var Client = require('node-rest-client').Client;
 var client = new Client();
 var admin = require("firebase-admin");
+var admin2 = require("firebase-admin");
+var admin3 = require("firebase-admin");
 //AWS.config.loadFromPath('./config.json');
 var s3 = new AWS.S3();
 
@@ -25,11 +27,24 @@ var upload = multer({
 });
 
 
-var serviceAccount = require('../election-b8219-firebase-adminsdk-0t0lc-485d2e37ad.json');
+// var serviceAccount = require('../election-b8219-firebase-adminsdk-0t0lc-485d2e37ad.json');
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://election-b8219.firebaseio.com"
+// })
+
+var serviceAccount2 = require('../kumarannajds-firebase-adminsdk-nzaxn-2da5c6c6e9.json');
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://election-b8219.firebaseio.com"
+  credential: admin.credential.cert(serviceAccount2),
+  databaseURL: "https://kumarannajds.firebaseio.com"
 })
+
+// var serviceAccount3 = require('../sharadhapnaikjdsshimoga-firebase-adminsdk-2ymgd-fdb55e27c3.json');
+// admin3.initializeApp({
+//   credential: admin3.credential.cert(serviceAccount3),
+//   databaseURL: "https://sharadhapnaikjdsshimoga.firebaseio.com"
+// })
+
 module.exports = function(app, passport) {
 
 
@@ -327,6 +342,14 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
                   body: receivedData.description,
               }
                 };  
+                // if(req.params.id == "hdk")
+                // {
+                //     admin = admin2;
+                // }
+                // else if(req.params.id == "spnjds")
+                // {
+                //     admin = admin3;
+                // }
             admin.messaging().sendToTopic(topic, payload)
             .then(function(response2) {
               // See the MessagingTopicResponse reference documentation for the
@@ -377,7 +400,7 @@ app.get( '/v1/feed/info/:id', function( request, response ) {
 });
 
 app.get( '/v1/feed/images/:id', function( request, response ) {
-    console.log("GET --/v1/vendor/info/");
+    console.log("GET --/v1/feed/images/");
 
     return VendorInfoModel.find({ 'username':request.params.id},
       function( err, vendor ) {
@@ -411,7 +434,7 @@ app.get( '/v1/feed/images/:id', function( request, response ) {
 });
 
 app.get( '/v1/feed/videos/:id', function( request, response ) {
-    console.log("GET --/v1/vendor/info/");
+    console.log("GET --/v1/feed/videos/");
 
     return VendorInfoModel.find({ 'username':request.params.id},
       function( err, vendor ) {
