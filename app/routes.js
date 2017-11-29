@@ -379,6 +379,37 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
    
 });
 
+app.get( '/v1/feed/manifesto/:id', function( request, response ) {
+    console.log("GET --/v1/feed/manifesto/");
+    var prefix = request.params.id + '_manifesto/';
+    console.log(prefix);
+            var params = { 
+              Bucket: 'chunavane',
+              Delimiter: '',
+              Prefix: prefix 
+            }
+
+        s3.listObjects(params, function (err, data) {
+          if(err)throw err;
+           var new_menu_array = [];
+             var menu_array ;
+            // console.log(data);
+              menu_array = data.Contents;
+             // console.log(menu_array);
+          for (var i = 1 ; i < menu_array.length ; i++) {
+
+            var url = "https://s3.ap-south-1.amazonaws.com/chunavane/";
+            url = url + menu_array[i].Key;
+            var url2= {};
+            url2['url'] =url ;
+             console.log(menu_array[i].Key);
+                      new_menu_array.push(url2);
+
+              }
+          response.send(new_menu_array);
+        });
+
+});
 app.get( '/v1/feed/info/:id', function( request, response ) {
     console.log("GET --/v1/vendor/info/");
 
