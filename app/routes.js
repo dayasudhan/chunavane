@@ -324,12 +324,19 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
        youtubeid = receivedData.feedvideo.substring(nu+1);
     }
     console.log(youtubeid);
+
+    var indiantime = new Date();
+
+    indiantime.setHours(indiantime.getHours() + 5);
+    indiantime.setMinutes(indiantime.getMinutes() + 30);
+
     return VendorInfoModel.update({ 'username':req.params.id},
      { $addToSet: {newsfeed: {$each:[{
       heading: receivedData.heading,
       description: receivedData.description,
       feedvideo:youtubeid,
-      feedimages: url2}] }}},
+      time:indiantime,
+      feedimages: url2}], }}},
        function( err, order ) {
        if( !err ) {
 
