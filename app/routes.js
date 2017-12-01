@@ -341,7 +341,7 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
        if( !err ) {
 
 
-              var topic = "news";
+              var topic = req.params.id;
               var payload = {
                  notification: {
                   title: receivedData.heading,
@@ -349,14 +349,7 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
                   body: receivedData.description,
               }
                 };  
-                // if(req.params.id == "hdk")
-                // {
-                //     admin = admin2;
-                // }
-                // else if(req.params.id == "spnjds")
-                // {
-                //     admin = admin3;
-                // }
+
             admin.messaging().sendToTopic(topic, payload)
             .then(function(response2) {
               // See the MessagingTopicResponse reference documentation for the
@@ -684,7 +677,7 @@ app.get( '/v1/pn/customer/fcm/:id', function( request, response ) {
       var payload = {
        notification: {
         title: "Hello World2! ",
-        icon: "your_icon_name",
+        icon: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg",
         body: "Here is a not2222ification's body.",
     }
       };  
