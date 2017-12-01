@@ -681,10 +681,7 @@ app.get( '/v1/pn/customer/fcm/:id', function( request, response ) {
         body: "Here is a not2222ification's body.",
     },
   data: {
-    stock: "GOOG",
-    open: 829.62,
-    close: "635.67",
-    image: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg"
+       image: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg"
   }
       };  
       admin.messaging().sendToTopic(topic, payload)
