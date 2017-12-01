@@ -678,6 +678,7 @@ app.get( '/v1/pn/customer/fcm/:id', function( request, response ) {
        notification: {
         title: "Hello World2! ",
         icon: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg",
+        image: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg",
         body: "Here is a not2222ification's body.",
     }
       };  
