@@ -669,7 +669,7 @@ app.post( '/v1/pn/register', function( request, response ) {
 app.get( '/v1/pn/customer/fcm/:id', function( request, response ) {
       console.log("post v1/pn/customer/addTofirebase");
      
-      var topic = "news";
+      var topic = request.params.id;
 
 // See the "Defining the message payload" section below for details
 // on how to define a message payload.
@@ -677,9 +677,15 @@ app.get( '/v1/pn/customer/fcm/:id', function( request, response ) {
        notification: {
         title: "Hello World2! ",
         icon: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg",
-        image: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg",
+        
         body: "Here is a not2222ification's body.",
-    }
+    },
+  data: {
+    stock: "GOOG",
+    open: 829.62,
+    close: "635.67",
+    image: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg"
+  }
       };  
       admin.messaging().sendToTopic(topic, payload)
       .then(function(response2) {
