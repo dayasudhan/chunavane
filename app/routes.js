@@ -8,8 +8,7 @@ var path = require('path');
 var Client = require('node-rest-client').Client;
 var client = new Client();
 var admin = require("firebase-admin");
-var admin2 = require("firebase-admin");
-var admin3 = require("firebase-admin");
+
 //AWS.config.loadFromPath('./config.json');
 var s3 = new AWS.S3();
 
@@ -27,17 +26,17 @@ var upload = multer({
 });
 
 
-// var serviceAccount = require('../election-b8219-firebase-adminsdk-0t0lc-485d2e37ad.json');
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://election-b8219.firebaseio.com"
-// })
-
-var serviceAccount2 = require('../kumarannajds-firebase-adminsdk-nzaxn-2da5c6c6e9.json');
+var serviceAccount = require('../election-b8219-firebase-adminsdk-0t0lc-485d2e37ad.json');
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount2),
-  databaseURL: "https://kumarannajds.firebaseio.com"
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://election-b8219.firebaseio.com"
 })
+
+// var serviceAccount2 = require('../kumarannajds-firebase-adminsdk-nzaxn-2da5c6c6e9.json');
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount2),
+//   databaseURL: "https://kumarannajds.firebaseio.com"
+// })
 
 // var serviceAccount3 = require('../sharadhapnaikjdsshimoga-firebase-adminsdk-2ymgd-fdb55e27c3.json');
 // admin3.initializeApp({
