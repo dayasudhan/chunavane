@@ -8,7 +8,7 @@ var path = require('path');
 var Client = require('node-rest-client').Client;
 var client = new Client();
 var admin = require("firebase-admin");
-
+var firebase = require("firebase");
 //AWS.config.loadFromPath('./config.json');
 var s3 = new AWS.S3();
 
@@ -43,7 +43,15 @@ admin.initializeApp({
 //   credential: admin3.credential.cert(serviceAccount3),
 //   databaseURL: "https://sharadhapnaikjdsshimoga.firebaseio.com"
 // })
-
+var config = {
+  apiKey: "AIzaSyDPveny7Zzop7u4eW4zZefIyxwYJCgH8ro",
+  authDomain: "election-b8219.firebaseapp.com",
+  databaseURL: "https://election-b8219.firebaseio.com",
+  storageBucket: "election-b8219.appspot.com",
+  projectId: "election-b8219"
+};
+firebase.initializeApp(config);
+var rootRef = firebase.database().ref();
 module.exports = function(app, passport) {
 
 
@@ -664,6 +672,26 @@ app.post( '/v1/pn/register', function( request, response ) {
             console.log( 'failure' );
             return response.send('failure');
         }
+
+});
+app.get( '/v1/pn/vendor/addTofirebase', function( request, response ) {
+    console.log("post v1/pn/vendor/addTofirebase");
+    console.log(request.body);
+ 
+    //if( request.body.message ) {
+            console.log('success');
+            var pn = {};
+            pn["message"]  = {
+                "info:request.body.message"
+            };
+            console.log(pn); // should print  Object { name="John"}
+              rootRef.update(
+               pn
+             );
+
+            return response.send(pn);
+
+     
 
 });
 app.get( '/v1/pn/customer/fcm/:id', function( request, response ) {
