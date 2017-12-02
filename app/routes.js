@@ -682,7 +682,7 @@ app.get( '/v1/pn/vendor/addTofirebase', function( request, response ) {
             console.log('success');
             var pn = {};
             pn["message"]  = {
-                "info:request.body.message"
+                info:"request.body.message"
             };
             console.log(pn); // should print  Object { name="John"}
               rootRef.update(
