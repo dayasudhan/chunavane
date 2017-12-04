@@ -352,8 +352,11 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
               var payload = {
                  notification: {
                   title: receivedData.heading,
-                  icon: "your_icon_name",
+                  icon: url2,
                   body: receivedData.description,
+              },  data: {
+                   image: url2,
+                   message:  receivedData.heading
               }
                 };  
 
@@ -681,7 +684,7 @@ app.get( '/v1/pn/vendor/addTofirebase', function( request, response ) {
     //if( request.body.message ) {
             console.log('success');
             var pn = {};
-            pn["message"]  = {
+            pn["hdk"]  = {
                 info:"request.body.message"
             };
             console.log(pn); // should print  Object { name="John"}
