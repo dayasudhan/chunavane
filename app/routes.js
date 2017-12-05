@@ -347,12 +347,12 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
        function( err, order ) {
        if( !err ) {
 
-
+ console.log(url2);
               var topic = req.params.id;
               var payload = {
                  notification: {
                   title: receivedData.heading,
-                  icon: url2,
+                  icon: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg",
                   body: receivedData.description,
               },  data: {
                    image: url2,
