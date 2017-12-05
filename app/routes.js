@@ -314,12 +314,17 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
     
     console.log('Successfully uploaded ' + req.files.length + ' files!');
     var url2 = [];
+    var urlnotfication = "";
     for (var i = 0; i < req.files.length; i++) {
     
       console.log(req.files[i].location);
       var elem = {url:req.files[i].location};
      // var elem[url]  =  req.files[i].location;
       url2.push( elem);
+      if(i == 0)
+      {
+        urlnotfication = req.files[i].location;
+      }
     }
     console.log(url2);
     var youtubeid = "";
@@ -348,15 +353,15 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
        if( !err ) {
 
  console.log(url2);
- var image = "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg";
+//var image = url2[0].url;
               var topic = req.params.id;
               var payload = {
                  notification: {
                   title: receivedData.heading,
-                  icon: image,
+                  icon: urlnotfication,
                   body: receivedData.description,
               },  data: {
-                   image: image,
+                   image: urlnotfication,
                    message:  receivedData.heading
               }
                 };  
