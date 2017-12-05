@@ -352,7 +352,7 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
        function( err, order ) {
        if( !err ) {
 
- console.log(url2);
+ console.log("urlnotfication->",urlnotfication);
 //var image = url2[0].url;
               var topic = req.params.id;
               var payload = {
