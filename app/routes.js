@@ -348,14 +348,15 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
        if( !err ) {
 
  console.log(url2);
+ var image = "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg";
               var topic = req.params.id;
               var payload = {
                  notification: {
                   title: receivedData.heading,
-                  icon: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg",
+                  icon: image,
                   body: receivedData.description,
               },  data: {
-                   image: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg",
+                   image: image,
                    message:  receivedData.heading
               }
                 };  
