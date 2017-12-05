@@ -355,7 +355,7 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
                   icon: "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg",
                   body: receivedData.description,
               },  data: {
-                   image: url2,
+                   image: url2[0],
                    message:  receivedData.heading
               }
                 };  
