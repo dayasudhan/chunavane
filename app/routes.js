@@ -353,16 +353,27 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
        if( !err ) {
 
  console.log("urlnotfication->",urlnotfication);
+ var notheading="",notdescription="";
+ if(receivedData.heading)
+ {
+  notheading = receivedData.heading;
+ }
+  if( receivedData.description)
+ {
+  notdescription =  receivedData.description;
+ }
+  console.log("notheading->",notheading);
+   console.log("notdescription->",notdescription);
 //var image = url2[0].url;
               var topic = req.params.id;
               var payload = {
                  notification: {
-                  title: receivedData.heading,
+                  title:notheading,
                   icon: urlnotfication,
-                  body: receivedData.description,
+                  body: notdescription,
               },  data: {
                    image: urlnotfication,
-                   message:  receivedData.heading
+                   message:  notheading
               }
                 };  
 
