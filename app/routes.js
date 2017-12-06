@@ -251,7 +251,7 @@ console.log(req.body);
 });
 
 
-app.post('/signup', function(req, res, next) {
+app.post('/p/vendor_signup', function(req, res, next) {
 console.log(req.body);
   if(req.body.password != req.body.password2)
   {
@@ -259,7 +259,7 @@ console.log(req.body);
   console.log("password mimatchmatch");
      return res.send('ERROR');
   }
-  else if(req.body.adminpassword == "hirebasuru")
+  else if(req.body.adminpassword != "hirebasuru")
   {
       console.log("adminpassword mimatchmatch");
      return res.send('ERROR');
