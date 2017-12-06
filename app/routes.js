@@ -305,6 +305,8 @@ function registerVendor(req, res, next) {
 };
 app.post( '/v1/candidate/suggestion/:id', function( req, res ) {
     console.log("post /v1/candidate/suggestion/");
+
+     console.log(req.body);
     var receivedData =  JSON.parse(req.body);
 
     var indiantime = new Date();
@@ -314,11 +316,11 @@ app.post( '/v1/candidate/suggestion/:id', function( req, res ) {
     return VendorInfoModel.update({ 'username':req.params.id},
           { 
             $addToSet: {inbox: {$each:[{
-                        name: receivedData.name,
-                        phone: receivedData.phone,
-                        emailid:receivedData.emailid,
+                        name: req.body.name,
+                        phone: req.body.phone,
+                        emailid:req.body.emailid,
                         time:indiantime,
-                        letter: receivedData.letter}], }}},
+                        letter: req.body.letter}], }}},
             function( err, order ) 
             {
                 if( !err ) {
