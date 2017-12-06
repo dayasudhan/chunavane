@@ -274,7 +274,7 @@ console.log(req.body);
       if (err) { 
         return next(err); }
       if (!user) { 
-          var redirect_url = '/signup';
+          var redirect_url = '/p/vendor_signup';
           return res.redirect(redirect_url); 
        }
       req.logIn(user, function(err) {
