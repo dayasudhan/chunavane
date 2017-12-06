@@ -316,9 +316,9 @@ function registerVendor(req, res, next) {
 };
 app.post( '/v1/candidate/suggestion/:id', function( req, res ) {
     console.log("post /v1/candidate/suggestion/");
-  if(checkVendorApiAunthaticated(request,2) == false && request.isAuthenticated() == false)
+  if(checkVendorApiAunthaticated(req,2) == false && req.isAuthenticated() == false)
   {
-    return response.send("Not aunthiticated").status(403);
+    return res.send("Not aunthiticated").status(403);
   }
      console.log(req.body);
    // var receivedData =  JSON.parse(req.body);
