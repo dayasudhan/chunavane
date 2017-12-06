@@ -259,6 +259,11 @@ console.log(req.body);
   console.log("password mimatchmatch");
      return res.send('ERROR');
   }
+  else if(req.body.adminpassword == "hirebasuru")
+  {
+      console.log("adminpassword mimatchmatch");
+     return res.send('ERROR');
+  }
   else
   {
     console.log("password match");
