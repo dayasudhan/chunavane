@@ -480,6 +480,47 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
    
 });
 
+
+app.post( '/v1/scrollimages/:id',upload.array('file'), function( req, res ) {
+
+    if(req.isAuthenticated() == false)
+    {
+      return res.send("Not aunthiticated").status(403);
+    }
+    console.log("commentInfo post");
+    console.log(req.body);
+    console.log(req.params.id);
+    console.log('files->',req.files);
+    console.log('file->',req.file);
+    
+    console.log('Successfully uploaded ' + req.files.length + ' files!');
+    var url2 = [];
+    
+    for (var i = 0; i < req.files.length; i++) {
+    
+      console.log(req.files[i].location);
+      var elem = {url:req.files[i].location};
+     // var elem[url]  =  req.files[i].location;
+      url2.push( elem);
+
+    }
+
+    return VendorInfoModel.update({ 'username':req.params.id},
+     { $addToSet: {scrollimages: url2}},
+       function( err, order ) {
+       if( !err ) {
+           console.log("no error");
+           console.log(order);
+           return res.send('Success');
+       } else {
+           console.log( err );
+           return res.send('ERROR');
+       }
+   });
+   
+});
+
+
 app.get( '/v1/feed/manifesto/:id', function( request, response ) {
     console.log("GET --/v1/feed/manifesto/");
     var prefix = request.params.id + '_manifesto/';
