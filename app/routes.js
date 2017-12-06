@@ -537,6 +537,32 @@ app.get( '/v1/feed/info/:id', function( request, response ) {
         }
     });
 });
+app.get( '/v2/feed/info/:id', function( request, response ) {
+    console.log("GET --/v1/vendor/info/");
+
+    return VendorInfoModel.find({ 'username':request.params.id},
+      function( err, vendor ) {
+        if( !err ) {
+            console.log(vendor);
+            var new_menu_array = [];
+          ///  for (var j = 0; j < vendor.length; j++) {
+              var menu_array ;
+              menu_array = vendor[0].newsfeed;
+              
+              for (var i = menu_array.length - 1 ; i >= 0; i--) {
+
+                      new_menu_array.push(menu_array[i]);
+
+              }
+             
+         //   }
+            return response.send( new_menu_array );
+        } else {
+            console.log( err );
+            return response.send('ERROR');
+        }
+    });
+});
 
 app.get( '/v1/feed/images/:id', function( request, response ) {
     console.log("GET --/v1/feed/images/");
