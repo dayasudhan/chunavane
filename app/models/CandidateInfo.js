@@ -23,7 +23,8 @@ var CandidateInfoSchema = new mongoose.Schema({
                 emailid:String,
                 letter:String,
                 time:Date
-    }]
+    }],
+    scrollimages:[{url:String}]
 
     });
 

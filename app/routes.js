@@ -545,7 +545,6 @@ app.get( '/v2/feed/info/:id', function( request, response ) {
         if( !err ) {
             console.log(vendor);
             var new_menu_array = [];
-          ///  for (var j = 0; j < vendor.length; j++) {
               var menu_array ;
               menu_array = vendor[0].newsfeed;
               
@@ -554,9 +553,8 @@ app.get( '/v2/feed/info/:id', function( request, response ) {
                       new_menu_array.push(menu_array[i]);
 
               }
-             
-         //   }
-            return response.send( new_menu_array );
+            
+            return response.send( vendor );
         } else {
             console.log( err );
             return response.send('ERROR');
