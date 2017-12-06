@@ -10,12 +10,20 @@ var CandidateInfoSchema = new mongoose.Schema({
     id:String,
     phone:Number, 
     address:String,
+    paid:Number,
     newsfeed:[{heading:String,
                description:String,
                feedvideo:String,
                feedimages:[{url:String}],
                time:Date
-             }]
+             }],
+    inbox:[{
+                name:String,
+                phoneno:String,
+                emailid:String,
+                letter:String,
+                time:Date
+    }]
 
     });
 

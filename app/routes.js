@@ -303,6 +303,36 @@ function registerVendor(req, res, next) {
         });
     });
 };
+app.post( '/v1/candidate/suggestion/:id', function( req, res ) {
+    console.log("post /v1/candidate/suggestion/");
+    var receivedData =  JSON.parse(req.body.data);
+
+    var indiantime = new Date();
+    indiantime.setHours(indiantime.getHours() + 5);
+    indiantime.setMinutes(indiantime.getMinutes() + 30);
+
+    return VendorInfoModel.update({ 'username':req.params.id},
+          { 
+            $addToSet: {inbox: {$each:[{
+                        name: receivedData.name,
+                        phone: receivedData.phone,
+                        emailid:receivedData.emailid,
+                        time:indiantime,
+                        letter: receivedData.letter}], }}},
+            function( err, order ) 
+            {
+                if( !err ) {
+                  console.log( 'updated inbox' );
+                  return res.send('Successfully');
+                } 
+                else 
+                {
+                  console.log( 'updated inbox error' );     
+                  console.log( err );     
+                  return res.send('ERROR');     
+                }    
+           });    
+  });
 
 
 app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
