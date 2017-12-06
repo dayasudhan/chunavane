@@ -334,7 +334,32 @@ app.post( '/v1/candidate/suggestion/:id', function( req, res ) {
            });    
   });
 
+app.get( '/v1/candidate/suggestion/:id', function( request, response ) {
+    console.log("GET -'/v1/candidate/suggestion/:id");
 
+    return VendorInfoModel.find({ 'username':request.params.id},
+      function( err, vendor ) {
+        if( !err ) {
+            console.log(vendor);
+            var new_menu_array = [];
+            for (var j = 0; j < vendor.length; j++) {
+              var menu_array ;
+              menu_array = vendor[j].inbox;
+              
+              for (var i = menu_array.length - 1 ; i >= 0; i--) {
+
+                      new_menu_array.push(menu_array[i]);
+
+              }
+             
+            }
+            return response.send( new_menu_array );
+        } else {
+            console.log( err );
+            return response.send('ERROR');
+        }
+    });
+});
 app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
     console.log("commentInfo post");
     console.log(req.body);
