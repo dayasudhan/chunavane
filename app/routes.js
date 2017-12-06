@@ -305,7 +305,7 @@ function registerVendor(req, res, next) {
 };
 app.post( '/v1/candidate/suggestion/:id', function( req, res ) {
     console.log("post /v1/candidate/suggestion/");
-    var receivedData =  JSON.parse(req.body.data);
+    var receivedData =  JSON.parse(req.body);
 
     var indiantime = new Date();
     indiantime.setHours(indiantime.getHours() + 5);
