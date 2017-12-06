@@ -84,7 +84,7 @@ app.get('/logout', function(req, res) {
 });
 
 app.get('/vendor_logout', function(req, res) {
-    var redirect_url = '/vendor';
+    var redirect_url = '/';
     req.logout();
     res.redirect(redirect_url);
 });
