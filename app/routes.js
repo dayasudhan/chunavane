@@ -546,7 +546,7 @@ app.get( '/v2/feed/info/:id', function( request, response ) {
             console.log(vendor);
             var new_menu_array = [];
               var menu_array = {};
-              if(vendor.length > 1)
+              if(vendor.length > 0)
               {
                 menu_array['newsfeed'] = vendor[0].newsfeed;
                 menu_array['scrollimages'] = vendor[0].scrollimages;
