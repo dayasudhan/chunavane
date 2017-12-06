@@ -546,15 +546,16 @@ app.get( '/v2/feed/info/:id', function( request, response ) {
             console.log(vendor);
             var new_menu_array = [];
               var menu_array ;
-              menu_array = vendor[0].newsfeed;
+              menu_array[newsfeed] = vendor[0].newsfeed;
+               menu_array[scrollimages] = vendor[0].scrollimages;
               
-              for (var i = menu_array.length - 1 ; i >= 0; i--) {
+              // for (var i = menu_array.length - 1 ; i >= 0; i--) {
 
-                      new_menu_array.push(menu_array[i]);
+              //         new_menu_array.push(menu_array[i]);
 
-              }
+              // }
             
-            return response.send( vendor );
+            return response.send( menu_array );
         } else {
             console.log( err );
             return response.send('ERROR');
