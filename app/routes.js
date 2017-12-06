@@ -377,6 +377,11 @@ app.get( '/v1/candidate/suggestion/:id', function( request, response ) {
     });
 });
 app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
+
+    if(req.isAuthenticated() == false)
+    {
+      return res.send("Not aunthiticated").status(403);
+    }
     console.log("commentInfo post");
     console.log(req.body);
     console.log(req.params.id);
