@@ -506,7 +506,9 @@ app.post( '/v1/scrollimages/:id',upload.array('file'), function( req, res ) {
     }
 
     return VendorInfoModel.update({ 'username':req.params.id},
-     { $addToSet: {scrollimages: url2}},
+     { $addToSet: {scrollimages: {$each:[{
+      url:req.files[0].location}], }}},
+     
        function( err, order ) {
        if( !err ) {
            console.log("no error");
