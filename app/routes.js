@@ -35,7 +35,17 @@ var upload = multer({
         }
     })
 });
-
+var uploadscroll = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: 'chunavane',
+        acl: 'public-read',
+        key: function (req, file, cb) {
+            console.log(file);
+            cb(null, req.params.id + '/' + 'scroll'+'/'+ 'main' + Date.now() + path.extname(file.originalname)); //use Date.now() for unique file keys
+        }
+    })
+});
 
 var serviceAccount = require('../election-b8219-firebase-adminsdk-0t0lc-485d2e37ad.json');
 admin.initializeApp({
@@ -481,7 +491,7 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
 });
 
 
-app.post( '/v1/scrollimages/:id',upload.array('file'), function( req, res ) {
+app.post( '/v1/scrollimages/:id',uploadscroll.array('file',1), function( req, res ) {
 
     if(req.isAuthenticated() == false)
     {
@@ -494,16 +504,8 @@ app.post( '/v1/scrollimages/:id',upload.array('file'), function( req, res ) {
     console.log('file->',req.file);
     
     console.log('Successfully uploaded ' + req.files.length + ' files!');
-    var url2 = [];
-    
-    for (var i = 0; i < req.files.length; i++) {
-    
-      console.log(req.files[i].location);
-      var elem = {url:req.files[i].location};
-     // var elem[url]  =  req.files[i].location;
-      url2.push( elem);
 
-    }
+    
 
     return VendorInfoModel.update({ 'username':req.params.id},
      { $addToSet: {scrollimages: {$each:[{
