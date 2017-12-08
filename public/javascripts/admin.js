@@ -216,6 +216,47 @@ app = angular.module("adminModule", []);
            alert("addComment error");
         });
     };
+
+
+
+    $scope.addScrollImages= function (param) {
+      console.log("addScrollImages 1");
+      var url = "/v1/scrollimages/";
+      
+
+      var fd = new FormData();
+     // console.log( $scope.files[0]);
+
+     if($scope.files)
+     {
+      for(var i = 0; i <$scope.files.length ; i++)
+      {
+        fd.append("file",  $scope.files[i]);
+      }
+      console.log($scope.files);
+    }
+     else
+     {
+      fd.append("file",  null);
+      }
+       
+      url = url + param;
+    $http.post(url,fd, {
+        withCredentials: true,
+        headers: {'Content-Type': undefined , 'enctype': 'multipart/form-data' },
+        transformRequest: angular.identity
+      }).success(function (data, status, headers, config)
+        {
+            console.log("addScrollImages success");
+            alert("addScrollImages success");
+
+        })
+        .error(function (data, status, headers, config)
+        {
+          console.log("addScrollImages error");
+           alert("addScrollImages error");
+        });
+    };
   });
 
 
