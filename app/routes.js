@@ -433,7 +433,7 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
     
     console.log('Successfully uploaded ' + req.files.length + ' files!');
     var imageurls = [];
-    var videoeurls = [];
+    var videourls = [];
     var audiourls = [];
     var urlnotfication = "";
     for (var i = 0; i < req.files.length; i++) {
