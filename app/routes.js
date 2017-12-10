@@ -705,7 +705,7 @@ app.get( '/v1/feed/videos/:id', function( request, response ) {
                           new_feed_images_array.push(menu_array[i]);
                     }
                     else if((feed_videos != null  && feed_videos.length > 0)|| 
-                      (feed_audios != null && feed_audios.length > ))
+                      (feed_audios != null && feed_audios.length > 0))
                     {
                           new_feed_images_array.push(menu_array[i]);
                     }
