@@ -30,8 +30,28 @@ var upload = multer({
         bucket: 'chunavane',
         acl: 'public-read',
         key: function (req, file, cb) {
-            console.log(file);
-            cb(null, req.params.id + '/' + 'main' + Date.now() + path.extname(file.originalname)); //use Date.now() for unique file keys
+          var filesuffix = "image";
+          console.log(file);
+          if(file.mimetype.startsWith("video"))
+          {
+              filesuffix = "video/main";
+              cb(null, req.params.id + '/' +filesuffix+ Date.now() + path.extname(file.originalname));
+          }
+          else if(file.mimetype.startsWith("image"))
+          {
+               filesuffix = "image/main";
+               cb(null, req.params.id + '/' +filesuffix+ Date.now() + path.extname(file.originalname));
+          }
+          else if(file.mimetype.startsWith("audio"))
+          {
+
+            filesuffix = "audio/main";
+            cb(null, req.params.id + '/' +filesuffix+ Date.now() + path.extname(file.originalname));
+          }
+          else
+           {
+            console.log("invalid filr format") 
+           } 
         }
     })
 });
