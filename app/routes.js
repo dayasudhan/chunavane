@@ -46,11 +46,12 @@ var upload = multer({
           {
 
             filesuffix = "audio/main";
+            if(file.mimetype.startsWith("image"))
             cb(null, req.params.id + '/' +filesuffix+ Date.now() + path.extname(file.originalname));
           }
           else
            {
-            console.log("invalid filr format") 
+            console.log("invalid file format") 
            } 
         }
     })
@@ -62,7 +63,14 @@ var uploadscroll = multer({
         acl: 'public-read',
         key: function (req, file, cb) {
             console.log(file);
-            cb(null, req.params.id + '/' + 'scroll'+'/'+ 'main' + Date.now() + path.extname(file.originalname)); //use Date.now() for unique file keys
+            if(file.mimetype.startsWith("image"))
+            {
+              cb(null, req.params.id + '/' + 'scroll'+'/'+ 'main' + Date.now() + path.extname(file.originalname)); //use Date.now() for unique file keys
+            }
+            else
+            {
+             console.log("invalid file format") 
+            } 
         }
     })
 });
