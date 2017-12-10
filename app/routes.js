@@ -446,7 +446,6 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
         imageurls.push(elem);
         urlnotfication = elem;
       }
-      }
       else if (req.files[i].mimetype.startsWith("video"))
       {
         videourls.push(elem);
