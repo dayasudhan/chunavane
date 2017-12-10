@@ -432,20 +432,32 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
     console.log('file->',req.file);
     
     console.log('Successfully uploaded ' + req.files.length + ' files!');
-    var url2 = [];
+    var imageurls = [];
+    var videoeurls = [];
+    var audiourls = [];
     var urlnotfication = "";
     for (var i = 0; i < req.files.length; i++) {
     
       console.log(req.files[i].location);
       var elem = {url:req.files[i].location};
-     // var elem[url]  =  req.files[i].location;
-      url2.push( elem);
-      if(i == 0)
+      // var elem[url]  =  req.files[i].location;
+      if(req.files[i].mimetype.startsWith("image"))
       {
-        urlnotfication = req.files[i].location;
+        imageurls.push(elem);
+        urlnotfication = elem;
       }
+      }
+      else if (req.files[i].mimetype.startsWith("video"))
+      {
+        videourls.push(elem);
+      }
+      else if(req.files[i].mimetype.startsWith("audio"))
+      {
+        audiourls.push(elem);
+      }
+
     }
-    console.log(url2);
+    console.log(imageurls);
     var youtubeid = "";
     var receivedData =  JSON.parse(req.body.data);
 
@@ -467,7 +479,10 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
       description: receivedData.description,
       feedvideo:youtubeid,
       time:indiantime,
-      feedimages: url2}], }}},
+      feedimages: imageurls,
+      feedvideos: videourls,
+      feedaudios: audiourls
+      }], }}},
        function( err, order ) {
        if( !err ) {
 

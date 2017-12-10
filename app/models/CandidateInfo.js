@@ -15,6 +15,8 @@ var CandidateInfoSchema = new mongoose.Schema({
                description:String,
                feedvideo:String,
                feedimages:[{url:String}],
+               feedvideos:[{url:String}],
+               feedaudios:[{url:String}],
                time:Date
              }],
     inbox:[{
