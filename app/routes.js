@@ -709,14 +709,13 @@ app.get( '/v1/feed/videos/:id', function( request, response ) {
                     {
                           new_feed_images_array.push(menu_array[i]);
                     }
-             
-            }
+             }
+          }
             return response.send( new_feed_images_array );
         } else {
             console.log( err );
             return response.send('ERROR');
         }
-      }
     });
 });
  
