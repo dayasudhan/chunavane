@@ -696,11 +696,19 @@ app.get( '/v1/feed/videos/:id', function( request, response ) {
               for (var i = menu_array.length - 1 ; i >= 0; i--) {
 
                     
-                      var feed_images = menu_array[i].feedvideo;
-                      if (feed_images != null && feed_images != "") {
-                            new_feed_images_array.push(menu_array[i]);
-                        }
+                    var feed_videos = menu_array[i].feedvideos;
+                    var feed_audios = menu_array[i].feedaudios;
+
+                    var feed_youtubevideos = menu_array[i].feedvideo;
+                    if (feed_youtubevideos != null && feed_youtubevideos != "") 
+                    {
+                          new_feed_images_array.push(menu_array[i]);
+                    }
+                    else if(feed_videos != null || feed_audios != null)
+                    {
+                          new_feed_images_array.push(menu_array[i]);
                      }
+                    }
              
             }
             return response.send( new_feed_images_array );
