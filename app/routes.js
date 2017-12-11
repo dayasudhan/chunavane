@@ -45,9 +45,8 @@ var upload = multer({
           else if(file.mimetype.startsWith("audio"))
           {
 
-            filesuffix = "audio/main";
-            if(file.mimetype.startsWith("image"))
-            cb(null, req.params.id + '/' +filesuffix+ Date.now() + path.extname(file.originalname));
+               filesuffix = "audio/main";
+               cb(null, req.params.id + '/' +filesuffix+ Date.now() + path.extname(file.originalname));
           }
           else
            {
