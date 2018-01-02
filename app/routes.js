@@ -224,7 +224,9 @@ app.get('/p/vendor_login', function (req, res) {
 app.get('/p/vendor_signup', function(req, res) {
     res.render('vendor_signup', { });
 });
-
+app.get('/p/vendor_reset', function(req, res) {
+    res.render('vendor_reset', { });
+});
 app.get('/about_us', function (req, res) {
     res.render('about_us', { user : req.user });
 });
@@ -244,7 +246,7 @@ app.get('/p/admin_order_today', function (req, res) {
 
 
 
-app.post('/reset', function(req, res, next) {
+app.post('/p/vendor_reset', function(req, res, next) {
 console.log(req.body);
   if(req.body.password != req.body.password2)
   {
@@ -252,11 +254,16 @@ console.log(req.body);
   console.log("password mimatchmatch");
      return res.send('ERROR');
   }
+  else if(req.body.adminpassword != "hirebasuru")
+  {
+      console.log("adminpassword mimatchmatch");
+     return res.send('ERROR');
+  }
   else
   {
     console.log("password match");
   }
-  console.log('/reset');
+  console.log('/vendor_reset');
     passport.authenticate('local-reset', function(err, user, info) {
      console.log(req.body);
       if (err) { 
@@ -266,19 +273,19 @@ console.log(req.body);
       }
       req.logIn(user, function(err) {
         if (err) { return next(err); }
-        console.log(req.body.role);
-        var redirect_url;
-        if(req.body.role == 'customer')
-        {
+     //   console.log(req.body.role);
+   //     var redirect_url;
+        // if(req.body.role == 'customer')
+        // {
        
-         return CustomerInfoModel.find({ 'phone':req.body.email},function( err, customerInfo ) {
-            if( !err ) {
-                return res.send( customerInfo );
-            } else {
-                console.log( err );
-                return res.send('ERROR');
-            }
-        });
+        //  return CustomerInfoModel.find({ 'phone':req.body.email},function( err, customerInfo ) {
+        //     if( !err ) {
+        //         return res.send( customerInfo );
+        //     } else {
+        //         console.log( err );
+        //         return res.send('ERROR');
+        //     }
+        // });
  
         return res.send("1");
         }
@@ -501,10 +508,8 @@ app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
               var payload = {
                  notification: {
                   title:notheading,
-                  icon: urlnotfication,
                   body: notdescription,
               },  data: {
-                   image: urlnotfication,
                    message:  notheading
               }
                 };  
