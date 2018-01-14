@@ -51,29 +51,6 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
-              <!-- Notifications: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-bell-o"></i>
-                  <span class="label label-warning">{{total2}}</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have {{total2}} notifications</li>
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                  <li class="footer"><a href="#">View all</a></li>
-                </ul>
-              </li>
-
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -138,10 +115,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">LABELS</li>
-            <li><a href="/p/vendor_order"><i class="fa fa-circle-o text-red"></i> <span>Order List</span></a></li>
-            <li><a href="/p/vendor_summary"><i class="fa fa-circle-o text-yellow"></i> <span>Order summary</span></a></li>
-            <li><a href="/p/vendor_menu"><i class="fa fa-circle-o text-aqua"></i> <span>Menu</span></a></li>
-            <li><a href="/p/vendor_details"><i class="fa fa-circle-o text-aqua"></i> <span>About Me</span></a></li>
+            <li><a href="/p/candidate_update"><i class="fa fa-circle-o text-red"></i> <span>Home</span></a></li>
           </ul>
         </section>
         <!-- /.sidebar -->
@@ -176,19 +150,18 @@
                     <thead>
                       <tr>
                        
-                        <th>Name</th>
-                        <th>EmailId</th>
-                        <th>Phone</th>
                         <th>Inbox</th>
+
                       </tr>
                     </thead>
                     <tbody>
                       <tr ng-repeat="order in inboxlist">
                         
-                        <td>{{order.name}} 
-                          <br>{{order.emailid}}
-                          <br>{{order.phoneno}}
-                          <br>{{order.letter}}
+                        <td>Name: {{order.name}} 
+                          <br>EmailId : {{order.emailid}}
+                          <br>Phone No: {{order.phoneno}}
+                          <br>Time: {{order.time}}
+                          <br>Letter: {{order.letter}}
                         </td>
               
 
