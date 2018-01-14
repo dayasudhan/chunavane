@@ -257,6 +257,25 @@ app = angular.module("adminModule", []);
            alert("addScrollImages error");
         });
     };
+
+
+    $scope.getinbox = function (param) {
+      console.log("getSuggestions");
+      var url2 = "/v1/candidate/suggestion/";
+      url2 = url2 + param;
+      $http.get(url2)
+        .success(function (data, status, headers, config)
+        {
+          $scope.inboxlist = data;
+          
+        })
+        .error(function (data, status, headers, config)
+        {
+          $scope.inboxlist = logResult("GET ERROR", data, status, headers, config);
+        });
+    };
+
+
   });
 
 
