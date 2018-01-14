@@ -235,16 +235,14 @@ app.get('/admin', function (req, res) {
     res.render('admin_login', { user : req.user });
 });
 
-app.get('/p/admin_order', function (req, res) {
+app.get('/p/inbox', function (req, res) {
     console.log(req.user);
-    res.render('admin_order', { user : req.user });
+    res.render('inbox', { user : req.user });
 });
 app.get('/p/admin_order_today', function (req, res) {
     console.log(req.user);
     res.render('admin_order_today', { user : req.user });
 });
-
-
 
 app.post('/p/vendor_reset', function(req, res, next) {
 console.log(req.body);
@@ -826,7 +824,7 @@ app.get( '/v1/admin/account/all', function( request, response ) {
 });
 
 app.get( '/v1/admin/counters/all', function( request, response ) {
-
+    console.log("get /v1/admin/counters");
     return CountersModel.find(function( err, order ) {
         if( !err ) {
             return response.send( order );
@@ -839,7 +837,6 @@ app.get( '/v1/admin/counters/all', function( request, response ) {
 
 app.post( '/v1/admin/counters/:id', function( request, response ) {
     console.log("post /v1/admin/counters");
-
     console.log(request.params.id);
      //var dd = {'cityName':"dvg",'subAreas':[{'name':"rajajinagar"},{'name':"vijaynagar"}]};
      var dd = {_id:request.params.id,
