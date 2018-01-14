@@ -183,12 +183,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="order in orderlist| orderBy:'date':true | filter:searchText">
+                      <tr ng-repeat="order in inboxlist">
                         
-                        <td>{{inboxlist.name}} 
-                          <br>{{inboxlist.emailid}}
-                          <br>{{inboxlist.phoneno}}
-                          <br>{{inboxlist.letter}}
+                        <td>{{order.name}} 
+                          <br>{{order.emailid}}
+                          <br>{{order.phoneno}}
+                          <br>{{order.letter}}
                         </td>
               
 
