@@ -300,8 +300,7 @@ app = angular.module("adminModule", []);
       $http.delete(url2)
         .success(function (data, status, headers, config)
         {
-          $scope.postlist = data;
-          
+           alert("deleted post");
         })
         .error(function (data, status, headers, config)
         {
