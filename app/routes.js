@@ -381,7 +381,7 @@ app.post( '/v1/candidate/suggestion/:id', function( req, res ) {
           { 
             $addToSet: {inbox: {$each:[{
                         name: req.body.name,
-                        phone: req.body.phone,
+                        phoneno: req.body.phone,
                         emailid:req.body.emailid,
                         time:indiantime,
                         letter: req.body.letter}], }}},
