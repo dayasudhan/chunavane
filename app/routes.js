@@ -606,7 +606,7 @@ app.get( '/v1/feed/info/:id', function( request, response ) {
     return VendorInfoModel.find({ 'username':request.params.id},
       function( err, vendor ) {
         if( !err ) {
-            console.log(vendor);
+            //console.log(vendor);
             var new_menu_array = [];
             for (var j = 0; j < vendor.length; j++) {
               var menu_array ;
@@ -651,7 +651,7 @@ app.get( '/v2/feed/info/:id', function( request, response ) {
     return VendorInfoModel.find({ 'username':request.params.id},
       function( err, vendor ) {
         if( !err ) {
-            console.log(vendor);
+            //console.log(vendor);
             var new_menu_array = [];
               var menu_array = {};
               if(vendor.length > 0)
