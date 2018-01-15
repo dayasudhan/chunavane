@@ -150,20 +150,22 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                       
-                        <th>Inbox</th>
-
+                        <th>Name</th>
+                        <th>EmailId</th>
+                        <th>Phone No</th>
+                        <th>Time</th>
+                        <th>Letter</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr ng-repeat="order in inboxlist">
                         
-                        <td><b>Name: </b>{{order.name}} 
-                          <br><b>EmailId :</b> {{order.emailid}}
-                          <br><b>Phone No:</b> {{order.phoneno}}
-                          <br><b>Time: </b>{{order.time}}
-                          <br><b>Letter: </b>{{order.letter}}
-                        </td>
+                        <td>{{order.name}}</td> 
+                          <td>{{order.emailid}}</td>
+                          <td>{{order.phoneno}}</td>
+                          <td>{{order.time}}</td>
+                          <td>{{order.letter}}</td>
+                
                     </tbody>
                     <tfoot>
 
