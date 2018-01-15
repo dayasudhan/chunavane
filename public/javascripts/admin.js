@@ -328,7 +328,7 @@ app = angular.module("adminModule", []);
     $scope.deleteScrollimages = function (param,imageid) {
       console.log("deleteScrollimages");
       console.log(param);
-      console.log(post);
+      console.log(imageid);
       var url2 = "/v1/scrollimages/";
       url2 = url2 + param + "/" + imageid;
       $http.delete(url2)
