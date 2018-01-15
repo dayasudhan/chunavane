@@ -626,6 +626,22 @@ app.get( '/v1/feed/info/:id', function( request, response ) {
         }
     });
 });
+
+app.delete( '/v1/feed/info/:id/:post', function( request, response ) {
+return VendorInfoModel.update( { 'username':request.params.id},
+          { $pull: {profiles: {"_id": request.params.post }}},
+          function( err ) {
+            if( !err ) {
+                console.log( 'post removed' );
+                return response.send( 'Successfully removed' );
+            } else {
+                console.log( err );
+                return response.send('ERROR');
+            }
+        });
+    //});
+});
+
 app.get( '/v2/feed/info/:id', function( request, response ) {
     console.log("GET --/v1/vendor/info/");
 
@@ -954,6 +970,7 @@ app.delete( '/v1/admin/counters/:id', function( request, response ) {
         });
     //});
 });
+
 
 function checkVendorApiAunthaticated(request,type)
 {

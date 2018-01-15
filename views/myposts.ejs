@@ -116,7 +116,7 @@
           <ul class="sidebar-menu">
             <li class="header">LABELS</li>
             <li><a href="/p/candidate_update"><i class="fa fa-circle-o text-red"></i> <span>Home</span></a></li>
-            <li><a href="/p/myposts"><i class="fa fa-circle-o text-red"></i> <span>My Posts</span></a></li>
+            <li><a href="/p/inbox"><i class="fa fa-circle-o text-red"></i> <span>Inbox</span></a></li>
           </ul>
         </section>
         <!-- /.sidebar -->
@@ -162,8 +162,8 @@
                        <td>{{order.heading}}</td>
                        <td>{{order.description}}</td>
                        <td>{{order.feedvideo}}</td>
-                       <td>{{order.feedvideo}}</td>
-                       <td>{{order.feedvideo}}</td>
+                       <td>{{order.feedimages.[0]}}</td>
+                       <td><button type="submit" class="btn btn-info" ng-click= "deletePost('order._id')">Delete this post</button></td>
                     </tbody>
                     <tfoot>
                       <tr>

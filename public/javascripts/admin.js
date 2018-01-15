@@ -290,6 +290,25 @@ app = angular.module("adminModule", []);
           $scope.inboxlist = logResult("GET ERROR", data, status, headers, config);
         });
     };
+
+    $scope.deletePost = function (param,post) {
+      console.log("deleetPosts");
+      console.log(param);
+      console.log(post);
+      var url2 = "/v1/feed/info/";
+      url2 = url2 + param + "/" + post;
+      $http.delete(url2)
+        .success(function (data, status, headers, config)
+        {
+          $scope.postlist = data;
+          
+        })
+        .error(function (data, status, headers, config)
+        {
+          $scope.inboxlist = logResult("GET ERROR", data, status, headers, config);
+        });
+        $scope.getPosts(param);
+    };
   });
 
 
