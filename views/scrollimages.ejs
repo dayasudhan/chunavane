@@ -157,8 +157,7 @@
                     </thead>
                     <tbody>
                       <tr ng-repeat="order in scrollimages">
-                       <td>{{order.url}}</td>
-                       <td><img src={{order.url}} class="img-thumbnail" alt="Cinque Terre"></td>
+                      <td><img src={{order.url}} class="img-thumbnail" alt="Cinque Terre"></td>
                        <td><button type="submit" class="btn btn-info" ng-click= "deleteScrollimages('<%= user.local.email %>',order._id)">Delete this post</button></td>
                     </tbody>
                     <tfoot>
