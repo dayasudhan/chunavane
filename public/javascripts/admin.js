@@ -275,7 +275,21 @@ app = angular.module("adminModule", []);
         });
     };
 
-
+    $scope.getPosts = function (param) {
+      console.log("getPosts");
+      var url2 = "/v1/feed/info/";
+      url2 = url2 + param;
+      $http.get(url2)
+        .success(function (data, status, headers, config)
+        {
+          $scope.postlist = data;
+          
+        })
+        .error(function (data, status, headers, config)
+        {
+          $scope.inboxlist = logResult("GET ERROR", data, status, headers, config);
+        });
+    };
   });
 
 

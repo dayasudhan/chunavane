@@ -150,25 +150,32 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                       
-                        <th>Inbox</th>
-
+                        <th>Heading</th>
+                        <th>Description</th>
+                        <th>Video</th>
+                        <th>Images</th>
+                        <th>Audio</th>th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="order in inboxlist">
-                        
-                        <td><b>Name: </b>{{order.name}} 
-                          <br><b>EmailId :</b> {{order.emailid}}
-                          <br><b>Phone No:</b> {{order.phoneno}}
-                          <br><b>Time: </b>{{order.time}}
-                          <br><b>Letter: </b>{{order.letter}}
-                        </td>
+                      <tr ng-repeat="order in postlist">
+                       <td>{{order.heading}}</td>
+                       <td>{{order.description}}</td>
+                       <td>{{order.feedvideo}}</td>
+                       <td>{{order.feedvideo}}</td>
+                       <td>{{order.feedvideo}}</td>
                     </tbody>
                     <tfoot>
-
+                      <tr>
+                        <th>Heading</th>
+                        <th>Description</th>
+                        <th>Video</th>
+                        <th>Images</th>
+                        <th>Audio</th>th>
+                      </tr>
                     </tfoot>
                   </table>
+
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->

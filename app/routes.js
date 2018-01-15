@@ -239,9 +239,9 @@ app.get('/p/inbox', function (req, res) {
     console.log(req.user);
     res.render('inbox', { user : req.user });
 });
-app.get('/p/admin_order_today', function (req, res) {
+app.get('/p/myposts', function (req, res) {
     console.log(req.user);
-    res.render('admin_order_today', { user : req.user });
+    res.render('myposts', { user : req.user });
 });
 
 app.post('/p/vendor_reset', function(req, res, next) {
