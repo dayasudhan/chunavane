@@ -243,7 +243,10 @@ app.get('/p/myposts', function (req, res) {
     console.log(req.user);
     res.render('myposts', { user : req.user });
 });
-
+app.get('/p/scrollimages', function (req, res) {
+    console.log(req.user);
+    res.render('scrollimages', { user : req.user });
+});
 app.post('/p/vendor_reset', function(req, res, next) {
 console.log(req.body);
   if(req.body.password != req.body.password2)
