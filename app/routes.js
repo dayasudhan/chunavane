@@ -678,11 +678,11 @@ app.get( '/v1/scrollimages/:id', function( request, response ) {
             //console.log(vendor);
             var new_menu_array = [];
               var menu_array = {};
-              if(vendor.length > 0)
-              {
-                menu_array['scrollimages'] = vendor[0].scrollimages;
-              }
-            return response.send( menu_array );
+              // if(vendor.length > 0)
+              // {
+              //   menu_array['scrollimages'] = vendor[0].scrollimages;
+              // }
+            return response.send( vendor[0].scrollimages);
         } else {
             console.log( err );
             return response.send('ERROR');
