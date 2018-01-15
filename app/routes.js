@@ -666,7 +666,43 @@ app.get( '/v2/feed/info/:id', function( request, response ) {
         }
     });
 });
+app.get( '/v1/scrollimages/:id', function( request, response ) {
+    console.log("GET --/v1/vendor/info/");
 
+    return VendorInfoModel.find({ 'username':request.params.id},
+      function( err, vendor ) {
+        if( !err ) {
+            //console.log(vendor);
+            var new_menu_array = [];
+              var menu_array = {};
+              if(vendor.length > 0)
+              {
+                menu_array['scrollimages'] = vendor[0].scrollimages;
+              }
+            return response.send( menu_array );
+        } else {
+            console.log( err );
+            return response.send('ERROR');
+        }
+    });
+});
+app.delete( '/v1/scrollimages/:id/:imageid', function( request, response ) {
+  console.log("delete --/v1/feed/info/");
+  console.log(request.params.id);
+  console.log(request.params.imageid);
+return VendorInfoModel.update( { 'username':request.params.id},
+          { $pull: {scrollimages: {"_id": request.params.imageid }}},
+          function( err ) {
+            if( !err ) {
+                console.log( 'post removed' );
+                return response.send( 'Successfully removed' );
+            } else {
+                console.log( err );
+                return response.send('ERROR');
+            }
+        });
+    //});
+});
 app.get( '/v1/feed/images/:id', function( request, response ) {
     console.log("GET --/v1/feed/images/");
 

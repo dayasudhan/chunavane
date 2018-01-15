@@ -308,6 +308,40 @@ app = angular.module("adminModule", []);
         });
         $scope.getPosts(param);
     };
+
+    $scope.getScrollimages = function (param) {
+      console.log("getPosts");
+      var url2 = "/v1/scrollimages/";
+      url2 = url2 + param;
+      $http.get(url2)
+        .success(function (data, status, headers, config)
+        {
+          $scope.scrollimages = data;
+          
+        })
+        .error(function (data, status, headers, config)
+        {
+          $scope.inboxlist = logResult("GET ERROR", data, status, headers, config);
+        });
+    };
+
+    $scope.deleteScrollimages = function (param,imageid) {
+      console.log("deleteScrollimages");
+      console.log(param);
+      console.log(post);
+      var url2 = "/v1/scrollimages/";
+      url2 = url2 + param + "/" + imageid;
+      $http.delete(url2)
+        .success(function (data, status, headers, config)
+        {
+           alert("deleted Scroll Image");
+        })
+        .error(function (data, status, headers, config)
+        {
+          $scope.inboxlist = logResult("GET ERROR", data, status, headers, config);
+        });
+        $scope.getScrollimages(param);
+    };
   });
 
 
