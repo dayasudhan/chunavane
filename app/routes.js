@@ -628,6 +628,9 @@ app.get( '/v1/feed/info/:id', function( request, response ) {
 });
 
 app.delete( '/v1/feed/info/:id/:post', function( request, response ) {
+  console.log("GET --/v1/feed/info/");
+  console.log(request.params.id);
+  console.log(request.params.post);
 return VendorInfoModel.update( { 'username':request.params.id},
           { $pull: {profiles: {"_id": request.params.post }}},
           function( err ) {

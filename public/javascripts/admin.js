@@ -292,7 +292,7 @@ app = angular.module("adminModule", []);
     };
 
     $scope.deletePost = function (param,post) {
-      console.log("deleetPosts");
+      console.log("deletPosts");
       console.log(param);
       console.log(post);
       var url2 = "/v1/feed/info/";
