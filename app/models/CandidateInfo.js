@@ -26,6 +26,12 @@ var CandidateInfoSchema = new mongoose.Schema({
                 letter:String,
                 time:Date
     }],
+    members:[{
+                name:String,
+                phoneno:String,
+                emailid:String,
+                time:Date
+    }],
     scrollimages:[{url:String}]
 
     });

@@ -426,6 +426,74 @@ app.get( '/v1/candidate/suggestion/:id', function( request, response ) {
         }
     });
 });
+
+
+app.post( '/v1/candidate/register_member/:id', function( req, res ) {
+    console.log("post /v1/candidate/register_member/");
+  if(checkVendorApiAunthaticated(req,2) == false && req.isAuthenticated() == false)
+  {
+    return res.send("Not aunthiticated").status(403);
+  }
+     console.log(req.body);
+   // var receivedData =  JSON.parse(req.body);
+
+    var indiantime = new Date();
+    indiantime.setHours(indiantime.getHours() + 5);
+    indiantime.setMinutes(indiantime.getMinutes() + 30);
+
+    return VendorInfoModel.update({ 'username':req.params.id},
+          { 
+            $addToSet: {members: {$each:[{
+                        name: req.body.name,
+                        phoneno: req.body.phone,
+                        emailid:req.body.emailid,
+                        time:indiantime
+                        }], }}},
+            function( err, order ) 
+            {
+                if( !err ) {
+                  console.log( 'updated inbox' );
+                  return res.send('Successfully');
+                } 
+                else 
+                {
+                  console.log( 'updated inbox error' );     
+                  console.log( err );     
+                  return res.send('ERROR');     
+                }    
+           });    
+  });
+
+app.get( '/v1/candidate/register_member/:id', function( request, response ) {
+    console.log("GET -'/v1/candidate/register_member/:id");
+
+    return VendorInfoModel.find({ 'username':request.params.id},
+      function( err, vendor ) {
+        if( !err ) {
+            console.log(vendor);
+            var new_menu_array = [];
+            for (var j = 0; j < vendor.length; j++) {
+              var menu_array ;
+              menu_array = vendor[j].inbox;
+              
+              for (var i = menu_array.length - 1 ; i >= 0; i--) {
+
+                      new_menu_array.push(menu_array[i]);
+
+              }
+             
+            }
+            return response.send( new_menu_array );
+        } else {
+            console.log( err );
+            return response.send('ERROR');
+        }
+    });
+});
+
+
+
+
 app.post( '/v1/comment/info/:id',upload.array('file',5), function( req, res ) {
 
     if(req.isAuthenticated() == false)
