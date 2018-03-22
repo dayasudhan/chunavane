@@ -474,7 +474,7 @@ app.get( '/v1/candidate/register_member/:id', function( request, response ) {
             var new_menu_array = [];
             for (var j = 0; j < vendor.length; j++) {
               var menu_array ;
-              menu_array = vendor[j].inbox;
+              menu_array = vendor[j].members;
               
               for (var i = menu_array.length - 1 ; i >= 0; i--) {
 
