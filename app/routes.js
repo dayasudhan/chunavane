@@ -421,14 +421,14 @@ app.post( '/v2/candidate/suggestion/:id',uploadsuggestion.array('file',1), funct
  console.log('files->',req.files);
     console.log('file->',req.file);
      var elem = "";
-     for (var i = 0; i < req.files.length; i++) {
+    //  for (var i = 0; i < req.files.length; i++) {
     
-      console.log(req.files[i].location);
-       elem = {url:req.files[i].location};
+    //   console.log(req.files[i].location);
+    //    elem = {url:req.files[i].location};
    
 
-    }
-    console.log('Successfully uploaded ' + req.files.length + ' files!');
+    // }
+    //console.log('Successfully uploaded ' + req.files.length + ' files!');
 
     var indiantime = new Date();
     indiantime.setHours(indiantime.getHours() + 5);
