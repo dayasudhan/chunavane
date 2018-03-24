@@ -411,7 +411,7 @@ app.post( '/v1/candidate/suggestion/:id', function( req, res ) {
            });    
   });
 app.post( '/v2/candidate/suggestion/:id',uploadsuggestion.array('file',1), function( req, res ) {
-    console.log("post /v1/candidate/suggestion/");
+    console.log("post /v2/candidate/suggestion/");
   if(checkVendorApiAunthaticated(req,2) == false && req.isAuthenticated() == false)
   {
     return res.send("Not aunthiticated").status(403);
