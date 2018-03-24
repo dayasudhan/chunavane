@@ -74,6 +74,17 @@ var uploadscroll = multer({
     })
 });
 
+var uploadsuggestion = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: 'chunavane',
+        acl: 'public-read',
+        key: function (req, file, cb) {
+            console.log(file);
+            cb(null, req.params.id + '/' + 'suggestion'+'/'+ 'main' + Date.now() + path.extname(file.originalname)); //use Date.now() for unique file keys
+        }
+    })
+});
 var serviceAccount = require('../election-b8219-firebase-adminsdk-0t0lc-485d2e37ad.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -385,6 +396,46 @@ app.post( '/v1/candidate/suggestion/:id', function( req, res ) {
                         emailid:req.body.emailid,
                         time:indiantime,
                         letter: req.body.letter}], }}},
+            function( err, order ) 
+            {
+                if( !err ) {
+                  console.log( 'updated inbox' );
+                  return res.send('Successfully');
+                } 
+                else 
+                {
+                  console.log( 'updated inbox error' );     
+                  console.log( err );     
+                  return res.send('ERROR');     
+                }    
+           });    
+  });
+app.post( '/v2/candidate/suggestion/:id',uploadsuggestion.array('file',1), function( req, res ) {
+    console.log("post /v1/candidate/suggestion/");
+  if(checkVendorApiAunthaticated(req,2) == false && req.isAuthenticated() == false)
+  {
+    return res.send("Not aunthiticated").status(403);
+  }
+     console.log(req.body);
+   // var receivedData =  JSON.parse(req.body);
+ console.log('files->',req.files);
+    console.log('file->',req.file);
+    
+    console.log('Successfully uploaded ' + req.files.length + ' files!');
+
+    var indiantime = new Date();
+    indiantime.setHours(indiantime.getHours() + 5);
+    indiantime.setMinutes(indiantime.getMinutes() + 30);
+
+    return VendorInfoModel.update({ 'username':req.params.id},
+          { 
+            $addToSet: {inbox: {$each:[{
+                        name: req.body.name,
+                        phoneno: req.body.phone,
+                        emailid:req.body.emailid,
+                        time:indiantime,
+                        letter: req.body.letter,
+                        url:req.files[0].location}], }}},
             function( err, order ) 
             {
                 if( !err ) {

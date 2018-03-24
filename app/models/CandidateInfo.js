@@ -24,7 +24,8 @@ var CandidateInfoSchema = new mongoose.Schema({
                 phoneno:String,
                 emailid:String,
                 letter:String,
-                time:Date
+                time:Date,
+                url:String
     }],
     members:[{
                 name:String,
