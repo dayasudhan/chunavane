@@ -420,7 +420,14 @@ app.post( '/v2/candidate/suggestion/:id',uploadsuggestion.array('file',1), funct
    // var receivedData =  JSON.parse(req.body);
  console.log('files->',req.files);
     console.log('file->',req.file);
+     var elem = "";
+     for (var i = 0; i < req.files.length; i++) {
     
+      console.log(req.files[i].location);
+       elem = {url:req.files[i].location};
+   
+
+    }
     console.log('Successfully uploaded ' + req.files.length + ' files!');
 
     var indiantime = new Date();
@@ -435,7 +442,7 @@ app.post( '/v2/candidate/suggestion/:id',uploadsuggestion.array('file',1), funct
                         emailid:req.body.emailid,
                         time:indiantime,
                         letter: req.body.letter,
-                        url:req.files[0].location}], }}},
+                        url:elem}], }}},
             function( err, order ) 
             {
                 if( !err ) {
